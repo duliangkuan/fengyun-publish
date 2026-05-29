@@ -1,0 +1,654 @@
+{
+  "total_articles_loaded": 321,
+  "by_source": {
+    "corpus/kazik": 175,
+    "corpus/baoyu": 52,
+    "corpus/saiboshanxin": 50,
+    "draft/fengyun": 44
+  },
+  "opening_audit_all": {
+    "total_articles": 320,
+    "skipped_no_h2": 1,
+    "physical_pass_rate": 56.6,
+    "dims": {
+      "首段字数 ≥ 50 (intro 块)": {
+        "threshold": 50,
+        "stats": {
+          "n": 320,
+          "min": 89,
+          "p25": 359,
+          "median": 375,
+          "p75": 383,
+          "max": 929,
+          "mean": 365.4
+        },
+        "hit_rate_pct": 100.0,
+        "trigger_rate_pct": 0.0,
+        "note": "score_opening_signal 把整个 intro 块算字数,raw corpus 取前 400 字 → 必过"
+      },
+      "真实第一段字数 ≥ 50": {
+        "threshold": 50,
+        "stats": {
+          "n": 320,
+          "min": 5,
+          "p25": 20,
+          "median": 26,
+          "p75": 32,
+          "max": 102,
+          "mean": 27.51
+        },
+        "hit_rate_pct": 4.4,
+        "trigger_rate_pct": 95.6,
+        "note": "用 \\n\\n 切的第一段,更接近 PHASE1 「首段」原意"
+      },
+      "第一人称密度 ≥ 5/千字": {
+        "threshold": 5.0,
+        "stats": {
+          "n": 320,
+          "min": 0.0,
+          "p25": 2.55,
+          "median": 5.29,
+          "p75": 11.08,
+          "max": 32.86,
+          "mean": 7.53
+        },
+        "hit_rate_pct": 56.6,
+        "trigger_rate_pct": 43.4
+      },
+      "具体性 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 320,
+          "min": 0,
+          "p25": 8,
+          "median": 8,
+          "p75": 10,
+          "max": 10,
+          "mean": 8.01
+        },
+        "hit_rate_pct": 87.2,
+        "trigger_rate_pct": 12.8
+      },
+      "反差感 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 320,
+          "min": 0,
+          "p25": 0,
+          "median": 0,
+          "p75": 0,
+          "max": 10,
+          "mean": 1.38
+        },
+        "hit_rate_pct": 6.6,
+        "trigger_rate_pct": 93.4
+      },
+      "情绪锚点 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 320,
+          "min": 0,
+          "p25": 0,
+          "median": 5,
+          "p75": 5,
+          "max": 10,
+          "mean": 3.43
+        },
+        "hit_rate_pct": 11.9,
+        "trigger_rate_pct": 88.1
+      },
+      "信息密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 320,
+          "min": 10,
+          "p25": 10,
+          "median": 10,
+          "p75": 10,
+          "max": 10,
+          "mean": 10.0
+        },
+        "hit_rate_pct": 100.0,
+        "trigger_rate_pct": 0.0
+      },
+      "公式新鲜度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 320,
+          "min": 0,
+          "p25": 8,
+          "median": 8,
+          "p75": 10,
+          "max": 10,
+          "mean": 7.96
+        },
+        "hit_rate_pct": 83.4,
+        "trigger_rate_pct": 16.6
+      },
+      "公式新鲜度(原始 bucket 分布)": {
+        "buckets_0": 121,
+        "buckets_1": 146,
+        "buckets_2": 42,
+        "buckets_3": 11,
+        "is_formulaic_rate_pct": 16.6
+      }
+    }
+  },
+  "ending_audit_all": {
+    "total_articles": 307,
+    "skipped_too_short": 14,
+    "fallback_no_h2": 281,
+    "note": "fallback_no_h2 = 没 ## 的文章用末尾 800 字代替「最后 H2 之后」,这些样本的末段字数恒为 ≤ 800",
+    "physical_pass_rate": 99.3,
+    "dims": {
+      "末段字数 ≥ 150": {
+        "threshold": 150,
+        "stats": {
+          "n": 307,
+          "min": 76,
+          "p25": 705,
+          "median": 705,
+          "p75": 705,
+          "max": 1421,
+          "mean": 690.75
+        },
+        "hit_rate_pct": 99.3,
+        "trigger_rate_pct": 0.7
+      },
+      "金句密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 307,
+          "min": 0,
+          "p25": 0,
+          "median": 0,
+          "p75": 0,
+          "max": 10,
+          "mean": 0.65
+        },
+        "hit_rate_pct": 6.8,
+        "trigger_rate_pct": 93.2
+      },
+      "摘要密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 307,
+          "min": 0,
+          "p25": 0,
+          "median": 0,
+          "p75": 0,
+          "max": 10,
+          "mean": 0.48
+        },
+        "hit_rate_pct": 5.2,
+        "trigger_rate_pct": 94.8
+      },
+      "召唤密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 307,
+          "min": 0,
+          "p25": 0,
+          "median": 0,
+          "p75": 0,
+          "max": 10,
+          "mean": 0.77
+        },
+        "hit_rate_pct": 8.1,
+        "trigger_rate_pct": 91.9
+      }
+    }
+  },
+  "title_audit_all": {
+    "total_articles": 321,
+    "verdict_pass_rate_pct": 20.2,
+    "dims": {
+      "字数 ∈ [20,40]": {
+        "stats": {
+          "n": 321,
+          "min": 4,
+          "p25": 19,
+          "median": 24,
+          "p75": 29,
+          "max": 53,
+          "mean": 24.59
+        },
+        "hit_rate_pct": 70.7,
+        "trigger_rate_pct": 29.3
+      },
+      "数字组 ≤ 1": {
+        "stats": {
+          "n": 321,
+          "min": 0,
+          "p25": 0,
+          "median": 0,
+          "p75": 1,
+          "max": 4,
+          "mean": 0.56
+        },
+        "hit_rate_pct": 86.6,
+        "trigger_rate_pct": 13.4
+      },
+      "命中 7 钩子任一": {
+        "hit_rate_pct": 24.6,
+        "trigger_rate_pct": 75.4,
+        "hook_distribution": {
+          "人物故事": 14,
+          "热点事件": 42,
+          "思维比喻": 12,
+          "实用指南": 2,
+          "深度拆解": 5,
+          "颠覆认知": 4
+        }
+      },
+      "品牌词白名单命中": {
+        "hit_rate_pct": 19.3,
+        "comment": "白名单 = Anthropic/Claude/Skills/Claude Code/Sonnet/Opus/Haiku"
+      },
+      "品牌词黑名单不命中": {
+        "hit_rate_black_pct": 9.7,
+        "trigger_rate_pct": 9.7,
+        "comment": "黑名单 = OpenAI/GPT-X/Veo/GLM/ChatGPT"
+      },
+      "致命组合 risk": {
+        "hit_rate_pct": 0.0,
+        "trigger_rate_pct": 0.0
+      },
+      "4 共同特质 ≥ 2": {
+        "stats": {
+          "n": 321,
+          "min": 0,
+          "p25": 0,
+          "median": 1,
+          "p75": 1,
+          "max": 3,
+          "mean": 0.61
+        },
+        "hit_rate_pct": 3.4,
+        "trigger_rate_pct": 96.6,
+        "traits_distribution": {
+          "情绪化表达": 10,
+          "高信息密度": 174,
+          "强行动指令": 7,
+          "反常规认知": 5
+        }
+      },
+      "总分 ≥ 65": {
+        "stats": {
+          "n": 321,
+          "min": 22.5,
+          "p25": 52.5,
+          "median": 60,
+          "p75": 72.5,
+          "max": 95.0,
+          "mean": 61.93
+        },
+        "hit_rate_pct": 32.7,
+        "trigger_rate_pct": 67.3
+      },
+      "英文字符 ≥ 8(致命组合分项)": {
+        "stats": {
+          "n": 321,
+          "min": 0,
+          "p25": 2,
+          "median": 8,
+          "p75": 11,
+          "max": 39,
+          "mean": 8.11
+        },
+        "hit_rate_pct": 51.4
+      }
+    },
+    "hook_dist_by_corpus": {
+      "corpus/kazik": {
+        "n": 175,
+        "hook_total": 49,
+        "hook_hit_rate_pct": 28.0,
+        "dist": {
+          "人物故事": 10,
+          "热点事件": 28,
+          "思维比喻": 8,
+          "实用指南": 2,
+          "深度拆解": 1
+        }
+      },
+      "corpus/baoyu": {
+        "n": 52,
+        "hook_total": 10,
+        "hook_hit_rate_pct": 19.2,
+        "dist": {
+          "人物故事": 2,
+          "热点事件": 4,
+          "颠覆认知": 2,
+          "深度拆解": 2
+        }
+      },
+      "corpus/saiboshanxin": {
+        "n": 50,
+        "hook_total": 10,
+        "hook_hit_rate_pct": 20.0,
+        "dist": {
+          "热点事件": 9,
+          "深度拆解": 1
+        }
+      },
+      "draft/fengyun": {
+        "n": 44,
+        "hook_total": 10,
+        "hook_hit_rate_pct": 22.7,
+        "dist": {
+          "思维比喻": 4,
+          "深度拆解": 1,
+          "颠覆认知": 2,
+          "人物故事": 2,
+          "热点事件": 1
+        }
+      }
+    }
+  },
+  "fengyun_only_opening": {
+    "total_articles": 43,
+    "skipped_no_h2": 1,
+    "physical_pass_rate": 81.4,
+    "dims": {
+      "首段字数 ≥ 50 (intro 块)": {
+        "threshold": 50,
+        "stats": {
+          "n": 43,
+          "min": 89,
+          "p25": 246,
+          "median": 333,
+          "p75": 366,
+          "max": 929,
+          "mean": 324.28
+        },
+        "hit_rate_pct": 100.0,
+        "trigger_rate_pct": 0.0,
+        "note": "score_opening_signal 把整个 intro 块算字数,raw corpus 取前 400 字 → 必过"
+      },
+      "真实第一段字数 ≥ 50": {
+        "threshold": 50,
+        "stats": {
+          "n": 43,
+          "min": 5,
+          "p25": 16,
+          "median": 24,
+          "p75": 42,
+          "max": 102,
+          "mean": 33.91
+        },
+        "hit_rate_pct": 20.9,
+        "trigger_rate_pct": 79.1,
+        "note": "用 \\n\\n 切的第一段,更接近 PHASE1 「首段」原意"
+      },
+      "第一人称密度 ≥ 5/千字": {
+        "threshold": 5.0,
+        "stats": {
+          "n": 43,
+          "min": 0.0,
+          "p25": 6.99,
+          "median": 11.02,
+          "p75": 15.54,
+          "max": 32.86,
+          "mean": 11.57
+        },
+        "hit_rate_pct": 81.4,
+        "trigger_rate_pct": 18.6
+      },
+      "具体性 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 43,
+          "min": 4,
+          "p25": 8,
+          "median": 10,
+          "p75": 10,
+          "max": 10,
+          "mean": 9.21
+        },
+        "hit_rate_pct": 95.3,
+        "trigger_rate_pct": 4.7
+      },
+      "反差感 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 43,
+          "min": 0,
+          "p25": 0,
+          "median": 5,
+          "p75": 5,
+          "max": 10,
+          "mean": 3.3
+        },
+        "hit_rate_pct": 20.9,
+        "trigger_rate_pct": 79.1
+      },
+      "情绪锚点 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 43,
+          "min": 0,
+          "p25": 5,
+          "median": 5,
+          "p75": 8,
+          "max": 10,
+          "mean": 6.28
+        },
+        "hit_rate_pct": 44.2,
+        "trigger_rate_pct": 55.8
+      },
+      "信息密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 43,
+          "min": 10,
+          "p25": 10,
+          "median": 10,
+          "p75": 10,
+          "max": 10,
+          "mean": 10.0
+        },
+        "hit_rate_pct": 100.0,
+        "trigger_rate_pct": 0.0
+      },
+      "公式新鲜度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 43,
+          "min": 0,
+          "p25": 4,
+          "median": 8,
+          "p75": 8,
+          "max": 10,
+          "mean": 5.91
+        },
+        "hit_rate_pct": 58.1,
+        "trigger_rate_pct": 41.9
+      },
+      "公式新鲜度(原始 bucket 分布)": {
+        "buckets_0": 5,
+        "buckets_1": 20,
+        "buckets_2": 11,
+        "buckets_3": 7,
+        "is_formulaic_rate_pct": 41.9
+      }
+    }
+  },
+  "fengyun_only_ending": {
+    "total_articles": 30,
+    "skipped_too_short": 14,
+    "fallback_no_h2": 4,
+    "note": "fallback_no_h2 = 没 ## 的文章用末尾 800 字代替「最后 H2 之后」,这些样本的末段字数恒为 ≤ 800",
+    "physical_pass_rate": 93.3,
+    "dims": {
+      "末段字数 ≥ 150": {
+        "threshold": 150,
+        "stats": {
+          "n": 30,
+          "min": 76,
+          "p25": 329,
+          "median": 528,
+          "p75": 722,
+          "max": 1421,
+          "mean": 559.2
+        },
+        "hit_rate_pct": 93.3,
+        "trigger_rate_pct": 6.7
+      },
+      "金句密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 30,
+          "min": 0,
+          "p25": 4,
+          "median": 9,
+          "p75": 10,
+          "max": 10,
+          "mean": 6.7
+        },
+        "hit_rate_pct": 70.0,
+        "trigger_rate_pct": 30.0
+      },
+      "摘要密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 30,
+          "min": 0,
+          "p25": 0,
+          "median": 6,
+          "p75": 8,
+          "max": 10,
+          "mean": 4.87
+        },
+        "hit_rate_pct": 53.3,
+        "trigger_rate_pct": 46.7
+      },
+      "召唤密度 ≥ 6": {
+        "threshold": 6,
+        "stats": {
+          "n": 30,
+          "min": 0,
+          "p25": 6,
+          "median": 10,
+          "p75": 10,
+          "max": 10,
+          "mean": 7.9
+        },
+        "hit_rate_pct": 83.3,
+        "trigger_rate_pct": 16.7
+      }
+    }
+  },
+  "fengyun_only_title": {
+    "total_articles": 44,
+    "verdict_pass_rate_pct": 20.5,
+    "dims": {
+      "字数 ∈ [20,40]": {
+        "stats": {
+          "n": 44,
+          "min": 4,
+          "p25": 24,
+          "median": 29,
+          "p75": 31,
+          "max": 43,
+          "mean": 26.7
+        },
+        "hit_rate_pct": 79.5,
+        "trigger_rate_pct": 20.5
+      },
+      "数字组 ≤ 1": {
+        "stats": {
+          "n": 44,
+          "min": 0,
+          "p25": 0,
+          "median": 1,
+          "p75": 2,
+          "max": 3,
+          "mean": 0.8
+        },
+        "hit_rate_pct": 72.7,
+        "trigger_rate_pct": 27.3
+      },
+      "命中 7 钩子任一": {
+        "hit_rate_pct": 22.7,
+        "trigger_rate_pct": 77.3,
+        "hook_distribution": {
+          "思维比喻": 4,
+          "深度拆解": 1,
+          "颠覆认知": 2,
+          "人物故事": 2,
+          "热点事件": 1
+        }
+      },
+      "品牌词白名单命中": {
+        "hit_rate_pct": 25.0,
+        "comment": "白名单 = Anthropic/Claude/Skills/Claude Code/Sonnet/Opus/Haiku"
+      },
+      "品牌词黑名单不命中": {
+        "hit_rate_black_pct": 4.5,
+        "trigger_rate_pct": 4.5,
+        "comment": "黑名单 = OpenAI/GPT-X/Veo/GLM/ChatGPT"
+      },
+      "致命组合 risk": {
+        "hit_rate_pct": 0.0,
+        "trigger_rate_pct": 0.0
+      },
+      "4 共同特质 ≥ 2": {
+        "stats": {
+          "n": 44,
+          "min": 0,
+          "p25": 0,
+          "median": 1,
+          "p75": 1,
+          "max": 2,
+          "mean": 0.64
+        },
+        "hit_rate_pct": 4.5,
+        "trigger_rate_pct": 95.5,
+        "traits_distribution": {
+          "高信息密度": 26,
+          "反常规认知": 2
+        }
+      },
+      "总分 ≥ 65": {
+        "stats": {
+          "n": 44,
+          "min": 40,
+          "p25": 52.5,
+          "median": 60,
+          "p75": 70,
+          "max": 95.0,
+          "mean": 62.27
+        },
+        "hit_rate_pct": 31.8,
+        "trigger_rate_pct": 68.2
+      },
+      "英文字符 ≥ 8(致命组合分项)": {
+        "stats": {
+          "n": 44,
+          "min": 0,
+          "p25": 7,
+          "median": 10,
+          "p75": 13,
+          "max": 38,
+          "mean": 10.41
+        },
+        "hit_rate_pct": 72.7
+      }
+    },
+    "hook_dist_by_corpus": {
+      "draft/fengyun": {
+        "n": 44,
+        "hook_total": 10,
+        "hook_hit_rate_pct": 22.7,
+        "dist": {
+          "思维比喻": 4,
+          "深度拆解": 1,
+          "颠覆认知": 2,
+          "人物故事": 2,
+          "热点事件": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2694 @@
+[
+  {
+    "slug": "kazik",
+    "n_articles": 673,
+    "n_comments": 66570,
+    "fields": {
+      "aid": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "2647657627_1"
+      },
+      "title": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "关于ChatGPT的兄弟 - AI绘图的小思考"
+      },
+      "cover": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURraibxGuHz6cfRAR74OFy6ib8ORSRRyPOu5Jibi..."
+      },
+      "link": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mp.weixin.qq.com/s/d7I1zP7rvXZkeq3ct93FEg"
+      },
+      "digest": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "要成长为新的物种，就要经历所有你不会再扮演的角色。"
+      },
+      "update_time": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1677321528"
+      },
+      "appmsgid": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "2647657627"
+      },
+      "itemidx": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "item_show_type": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "author_name": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "卡兹克"
+      },
+      "tagid": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "list[empty]"
+        ],
+        "sample": null
+      },
+      "create_time": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1677321528"
+      },
+      "is_pay_subscribe": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "has_red_packet_cover": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "album_id": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "0"
+      },
+      "checking": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "media_duration": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "0:00"
+      },
+      "mediaapi_publish_status": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "copyright_type": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "appmsg_album_infos": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"id\": \"3583569696974651393\", \"title\": \"AI绘图\", \"album_id\": 3583569696974651400,..."
+      },
+      "pay_album_info": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"appmsg_album_infos\": []}"
+      },
+      "is_deleted": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "ban_flag": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "pic_cdn_url_235_1": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURraibxGuHz6cfRAR74OFy6ib8R47Z9JBicz8908..."
+      },
+      "pic_cdn_url_16_9": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURraibxGuHz6cfRAR74OFy6ib8R47Z9JBicz8908..."
+      },
+      "pic_cdn_url_3_4": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURrNcyOB2ErrMDR7uXe3wvjIP0stFRej5Gv2d6st..."
+      },
+      "pic_cdn_url_1_1": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURraibxGuHz6cfRAR74OFy6ib8ORSRRyPOu5Jibi..."
+      },
+      "line_info": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"use_line\": 1, \"line_count\": 11, \"is_appmsg_flag\": 1, \"is_use_flag\": 0}"
+      },
+      "copyright_stat": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_rumor_refutation": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "multi_picture_cover": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "share_imageinfo": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"file_id\": 500175405, \"cdn_url\": \"https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURrN..."
+      },
+      "fakeid": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "MzIyMzA5NjEyMA=="
+      },
+      "_status": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "正常"
+      },
+      "_accountName": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "数字生命卡兹克"
+      },
+      "content": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "关于ChatGPT的兄弟 - AI绘图的小思考  最近ChatGPT和人工智能上了天，不管是资本市场还是大众舆论，无不是最火热的话题，就连背后的某些算力公司，都..."
+      },
+      "readNum": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "3086"
+      },
+      "oldLikeNum": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "46"
+      },
+      "shareNum": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "53"
+      },
+      "likeNum": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "11"
+      },
+      "commentNum": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "19"
+      },
+      "comments": {
+        "count": 673,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 0, \"bizattr_servicetype\": 0, \"can_share\": true, \"content..."
+      },
+      "cover_img": {
+        "count": 586,
+        "pct": 87.1,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURrIcXBTiag1o1wbqvvIqWmk19HsAibUnqYnzmdi..."
+      },
+      "cover_img_theme_color": {
+        "count": 586,
+        "pct": 87.1,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 9, \"g\": 16, \"b\": 26}"
+      },
+      "audio_info": {
+        "count": 25,
+        "pct": 3.7,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"audio_infos\": [{\"audio_id\": \"MzIyMzA5NjEyMF8yNjQ3NjU4MzUz\", \"title\": \"卡兹克\", \"p..."
+      },
+      "cover_img_first": {
+        "count": 3,
+        "pct": 0.4,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURrNcyOB2ErrMDR7uXe3wvjIvOOvUUpsNJ4u4MY5..."
+      },
+      "img_first_theme_color": {
+        "count": 3,
+        "pct": 0.4,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 159, \"g\": 159, \"b\": 159}"
+      },
+      "cover_img_3_4": {
+        "count": 3,
+        "pct": 0.4,
+        "types": [
+          "str"
+        ],
+        "sample": "http://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURrNcyOB2ErrMDR7uXe3wvjIP0stFRej5Gv2d6sts..."
+      },
+      "img_3_4_theme_color": {
+        "count": 2,
+        "pct": 0.3,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 160, \"g\": 160, \"b\": 160}"
+      },
+      "location_page_show": {
+        "count": 34,
+        "pct": 5.1,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_location_page_show": {
+        "count": 34,
+        "pct": 5.1,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_user_title": {
+        "count": 32,
+        "pct": 4.8,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      }
+    },
+    "comment_fields": {
+      "author_like_status": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "bizattr_servicetype": {
+        "count": 66446,
+        "pct": 99.8,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_share": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "True"
+      },
+      "content": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "年底特来考古！"
+      },
+      "content_id": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "7226923370539909453"
+      },
+      "create_time": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1703841446"
+      },
+      "dislike_status": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "id": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "2"
+      },
+      "identity_name": {
+        "count": 66446,
+        "pct": 99.8,
+        "types": [
+          "str"
+        ],
+        "sample": "oOIscwM2AZtaKN9baqVkar0ng-ak"
+      },
+      "identity_type": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "ip_wording": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"city_id\": \"\", \"city_name\": \"\", \"country_id\": \"156\", \"country_name\": \"中国\", \"pro..."
+      },
+      "is_can_delete": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "is_elected": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_from": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_from_friend": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_from_me": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_reward": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_top": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "like_num": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "15"
+      },
+      "like_status": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "logo_url": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://wx.qlogo.cn/mmopen/2jjfQoZLoqULzBbB1YhS9AD77YHDAfS0ST5BLjQ3jzyzWANJLBSy6..."
+      },
+      "multi_info": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"emojis\": [], \"pictures\": []}"
+      },
+      "my_id": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "333"
+      },
+      "need_show_publish_tips": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "nick_name": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "枫丝语"
+      },
+      "openid": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "oOIscwM2AZtaKN9baqVkar0ng-ak"
+      },
+      "party_flag": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "reply_new": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"max_reply_id\": 1, \"reply_list\": [], \"reply_total_cnt\": 0}"
+      },
+      "$reply_list": {
+        "count": 66570,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 0, \"bizattr_servicetype\": 1, \"can_share\": true, \"content..."
+      },
+      "highlight": {
+        "count": 7,
+        "pct": 0.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"highlight_pos\": [75], \"s1s_context_info\": [\"%7B%22mixerCommonContext%22%3A%22%..."
+      }
+    }
+  },
+  {
+    "slug": "baoyu",
+    "n_articles": 813,
+    "n_comments": 3040,
+    "fields": {
+      "aid": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "2247483667_1"
+      },
+      "title": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "写提示词的功夫，代码都写出来了，还有必要用 AI 编程吗？"
+      },
+      "cover": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Sib7IezOlBcux0cDpZzP1pVahe0qwvqstfOTaSvTxloUo..."
+      },
+      "link": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mp.weixin.qq.com/s/p-YcbpiDfKtglFz3hX8m-A"
+      },
+      "digest": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "不少经验丰富的程序员对在编辑器中使用 Composer 的兴趣并不大。理由在于，如果要写一个实现模块的 Prompt，那么在他们看来，直接写出那部分代码可能耗时..."
+      },
+      "update_time": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1737444923"
+      },
+      "appmsgid": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "2247483667"
+      },
+      "itemidx": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "item_show_type": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "author_name": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "宝玉"
+      },
+      "tagid": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "list[empty]"
+        ],
+        "sample": null
+      },
+      "create_time": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1737444923"
+      },
+      "is_pay_subscribe": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "has_red_packet_cover": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "album_id": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "3834249049454067713"
+      },
+      "checking": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "media_duration": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "0:00"
+      },
+      "mediaapi_publish_status": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "copyright_type": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "appmsg_album_infos": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"id\": \"3834249049454067713\", \"title\": \"AI 编程\", \"album_id\": 3834249049454067700..."
+      },
+      "pay_album_info": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"appmsg_album_infos\": []}"
+      },
+      "is_deleted": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "ban_flag": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "pic_cdn_url_235_1": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Sib7IezOlBcux0cDpZzP1pVahe0qwvqst1lwGOXk87Sb5..."
+      },
+      "pic_cdn_url_16_9": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "http://mmbiz.qpic.cn/sz_mmbiz_jpg/Sib7IezOlBcsN0tqjToawnJAoVxcyknicH9jQB1gsicmtn..."
+      },
+      "pic_cdn_url_3_4": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Sib7IezOlBcuqDEUrgsPTYYLUtxG6TwIOEx3VmmZ72Tib..."
+      },
+      "pic_cdn_url_1_1": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Sib7IezOlBcux0cDpZzP1pVahe0qwvqstfOTaSvTxloUo..."
+      },
+      "cover_img": {
+        "count": 581,
+        "pct": 71.5,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Sib7IezOlBcux0cDpZzP1pVahe0qwvqstfOTaSvTxloUo..."
+      },
+      "cover_img_theme_color": {
+        "count": 581,
+        "pct": 71.5,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 29, \"g\": 22, \"b\": 23}"
+      },
+      "line_info": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"use_line\": 1, \"line_count\": 0, \"is_appmsg_flag\": 1, \"is_use_flag\": 0}"
+      },
+      "copyright_stat": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_rumor_refutation": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "multi_picture_cover": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "share_imageinfo": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"file_id\": 100001508, \"cdn_url\": \"https://mmbiz.qpic.cn/sz_mmbiz_png/Sib7IezOl..."
+      },
+      "fakeid": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "Mzk1NzgxMjQ0OA=="
+      },
+      "_status": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "正常"
+      },
+      "_accountName": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "宝玉AI"
+      },
+      "content": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "写提示词的功夫，代码都写出来了，还有必要用 AI 编程吗？  在使用 AI 编程时，我最常用到的是所谓的“Composer”功能。Composer 本来是 AI..."
+      },
+      "readNum": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "123"
+      },
+      "oldLikeNum": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "shareNum": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "10"
+      },
+      "likeNum": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "commentNum": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "comments": {
+        "count": 813,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 1, \"bizattr_servicetype\": 0, \"can_share\": true, \"content..."
+      },
+      "location_page_show": {
+        "count": 395,
+        "pct": 48.6,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_location_page_show": {
+        "count": 395,
+        "pct": 48.6,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "duration": {
+        "count": 58,
+        "pct": 7.1,
+        "types": [
+          "int"
+        ],
+        "sample": "78"
+      },
+      "cover_img_first": {
+        "count": 170,
+        "pct": 20.9,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/sz_mmbiz_png/Sib7IezOlBcuqDEUrgsPTYYLUtxG6TwIOslwrbW3L2LRL..."
+      },
+      "img_first_theme_color": {
+        "count": 170,
+        "pct": 20.9,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 255, \"g\": 230, \"b\": 252}"
+      },
+      "cover_img_3_4": {
+        "count": 170,
+        "pct": 20.9,
+        "types": [
+          "str"
+        ],
+        "sample": "http://mmbiz.qpic.cn/sz_mmbiz_jpg/Sib7IezOlBcuqDEUrgsPTYYLUtxG6TwIOEx3VmmZ72Tibv..."
+      },
+      "img_3_4_theme_color": {
+        "count": 170,
+        "pct": 20.9,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 253, \"g\": 254, \"b\": 254}"
+      },
+      "audio_info": {
+        "count": 3,
+        "pct": 0.4,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"audio_infos\": [{\"audio_id\": \"Mzk1NzgxMjQ0OF8yMjQ3NDg4OTI0\", \"title\": \"Notebook..."
+      }
+    },
+    "comment_fields": {
+      "author_like_status": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "bizattr_servicetype": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_share": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "True"
+      },
+      "content": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "特别同意"
+      },
+      "content_id": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "1751829778928763033"
+      },
+      "create_time": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1738734923"
+      },
+      "dislike_status": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "id": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "9"
+      },
+      "identity_name": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "o4Gzn689iTRVKDf_bTyk5ojYaZz8"
+      },
+      "identity_type": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "ip_wording": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"city_id\": \"\", \"city_name\": \"\", \"country_id\": \"156\", \"country_name\": \"中国\", \"pro..."
+      },
+      "is_can_delete": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "is_elected": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_from": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_from_friend": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_from_me": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_reward": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_top": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "like_num": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "4"
+      },
+      "like_status": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "logo_url": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://wx.qlogo.cn/mmopen/9Y8wgheicXdurJxN386tg2QPwWVvqluLFDGkOESFxu8r7d0gyW9XB..."
+      },
+      "multi_info": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"emojis\": [], \"pictures\": []}"
+      },
+      "my_id": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "153"
+      },
+      "need_show_publish_tips": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "nick_name": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "晓强"
+      },
+      "openid": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "o4Gzn689iTRVKDf_bTyk5ojYaZz8"
+      },
+      "party_flag": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "reply_new": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"max_reply_id\": 1, \"reply_list\": [], \"reply_total_cnt\": 0}"
+      },
+      "$reply_list": {
+        "count": 3040,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 0, \"bizattr_servicetype\": 1, \"can_share\": true, \"content..."
+      }
+    }
+  },
+  {
+    "slug": "saiboshanxin",
+    "n_articles": 897,
+    "n_comments": 14957,
+    "fields": {
+      "aid": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "2247483679_1"
+      },
+      "title": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "No.1 - 关于 AI 的 107 个人，61 个工具和 28 个通讯"
+      },
+      "cover": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYqG3TRLE0xPollpwcfPYia1M9A5RXxMkwjnSBm..."
+      },
+      "link": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mp.weixin.qq.com/s/Gjts6U3KgjVsW3fXYjHtcQ"
+      },
+      "digest": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "一封来自想要自证不会被 AI 取代的碳基生物的紧急通讯。"
+      },
+      "update_time": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1675946624"
+      },
+      "appmsgid": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "2247483679"
+      },
+      "itemidx": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "item_show_type": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "author_name": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "f.chen"
+      },
+      "tagid": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "list[empty]"
+        ],
+        "sample": null
+      },
+      "create_time": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1675946625"
+      },
+      "is_pay_subscribe": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "has_red_packet_cover": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "album_id": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "2790955567740944385"
+      },
+      "checking": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "media_duration": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "0:00"
+      },
+      "mediaapi_publish_status": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "copyright_type": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "appmsg_album_infos": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"id\": \"2790955567740944385\", \"title\": \"Hey AI, keep in touch!\", \"album_id\": 27..."
+      },
+      "pay_album_info": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"appmsg_album_infos\": []}"
+      },
+      "is_deleted": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "ban_flag": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "pic_cdn_url_235_1": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYqG3TRLE0xPollpwcfPYia1MGVI7tXCwZtpww8..."
+      },
+      "pic_cdn_url_16_9": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYqG3TRLE0xPollpwcfPYia1MGVI7tXCwZtpww8..."
+      },
+      "pic_cdn_url_3_4": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYrDYwtLW8xoyM7ibHVciaWmdQJEgp9DjnmNYzl..."
+      },
+      "pic_cdn_url_1_1": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYqG3TRLE0xPollpwcfPYia1M9A5RXxMkwjnSBm..."
+      },
+      "line_info": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"use_line\": 1, \"line_count\": 9, \"is_appmsg_flag\": 1, \"is_use_flag\": 0}"
+      },
+      "copyright_stat": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_rumor_refutation": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "multi_picture_cover": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "share_imageinfo": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"file_id\": 100003061, \"cdn_url\": \"https://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYr..."
+      },
+      "fakeid": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "MzkzNDQxOTU2MQ=="
+      },
+      "_status": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "正常"
+      },
+      "_accountName": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "赛博禅心"
+      },
+      "content": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "No.1 - 关于 AI 的 107 个人，61 个工具和 28 个通讯  文/f.chen @真格基金107 个值得关注的 Twitter107 People..."
+      },
+      "readNum": {
+        "count": 890,
+        "pct": 99.2,
+        "types": [
+          "int"
+        ],
+        "sample": "14337"
+      },
+      "oldLikeNum": {
+        "count": 890,
+        "pct": 99.2,
+        "types": [
+          "int"
+        ],
+        "sample": "73"
+      },
+      "shareNum": {
+        "count": 890,
+        "pct": 99.2,
+        "types": [
+          "int"
+        ],
+        "sample": "193"
+      },
+      "likeNum": {
+        "count": 890,
+        "pct": 99.2,
+        "types": [
+          "int"
+        ],
+        "sample": "55"
+      },
+      "commentNum": {
+        "count": 890,
+        "pct": 99.2,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "comments": {
+        "count": 897,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 0, \"bizattr_servicetype\": 0, \"can_share\": true, \"content..."
+      },
+      "is_user_title": {
+        "count": 15,
+        "pct": 1.7,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "location_page_show": {
+        "count": 222,
+        "pct": 24.7,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_location_page_show": {
+        "count": 222,
+        "pct": 24.7,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "cover_img_first": {
+        "count": 119,
+        "pct": 13.3,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYrDYwtLW8xoyM7ibHVciaWmdQgdZRWwDbQYuMW..."
+      },
+      "img_first_theme_color": {
+        "count": 119,
+        "pct": 13.3,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 255, \"g\": 255, \"b\": 255}"
+      },
+      "cover_img_3_4": {
+        "count": 119,
+        "pct": 13.3,
+        "types": [
+          "str"
+        ],
+        "sample": "http://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYrDYwtLW8xoyM7ibHVciaWmdQJEgp9DjnmNYzlW..."
+      },
+      "img_3_4_theme_color": {
+        "count": 90,
+        "pct": 10.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 255, \"g\": 255, \"b\": 255}"
+      },
+      "cover_img": {
+        "count": 644,
+        "pct": 71.8,
+        "types": [
+          "str"
+        ],
+        "sample": "http://mmbiz.qpic.cn/mmbiz_jpg/2icSMc1VBIYpgkibrqEW3n79Inia9ufVqRvUHCVspYKHCIhib..."
+      },
+      "cover_img_theme_color": {
+        "count": 644,
+        "pct": 71.8,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 192, \"g\": 157, \"b\": 42}"
+      },
+      "audio_info": {
+        "count": 22,
+        "pct": 2.5,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"audio_infos\": [{\"audio_id\": \"MzkzNDQxOTU2MV8yMjQ3NDg3OTUy\", \"title\": \"黄龙江一派全都带..."
+      },
+      "duration": {
+        "count": 8,
+        "pct": 0.9,
+        "types": [
+          "int"
+        ],
+        "sample": "4548"
+      }
+    },
+    "comment_fields": {
+      "author_like_status": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "bizattr_servicetype": {
+        "count": 14942,
+        "pct": 99.9,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_share": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "True"
+      },
+      "content": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "3分钟前上线了，在这：huggingface.co/microsoft"
+      },
+      "content_id": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "12609691722385981471"
+      },
+      "create_time": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1713885549"
+      },
+      "dislike_status": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "id": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "5"
+      },
+      "identity_name": {
+        "count": 14942,
+        "pct": 99.9,
+        "types": [
+          "str"
+        ],
+        "sample": "oaXqC6jMIB9HuJ5pZd7A5fjDDdpU"
+      },
+      "identity_type": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "ip_wording": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"city_id\": \"\", \"city_name\": \"\", \"country_id\": \"156\", \"country_name\": \"中国\", \"pro..."
+      },
+      "is_can_delete": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "is_elected": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_from": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_from_friend": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_from_me": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_reward": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_top": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "like_num": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "like_status": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "logo_url": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://wx.qlogo.cn/mmopen/jXSGuwJvpdgkIZdok2JlC43TRO8K4mm6HYegrbtKNPVKu4ojC0Uoa..."
+      },
+      "multi_info": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"emojis\": [], \"pictures\": []}"
+      },
+      "my_id": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "31"
+      },
+      "need_show_publish_tips": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "nick_name": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "大聪明"
+      },
+      "openid": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "oaXqC6jMIB9HuJ5pZd7A5fjDDdpU"
+      },
+      "party_flag": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "reply_new": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"max_reply_id\": 3, \"reply_list\": [], \"reply_total_cnt\": 2}"
+      },
+      "$reply_list": {
+        "count": 14957,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 0, \"bizattr_servicetype\": 0, \"can_share\": true, \"content..."
+      },
+      "highlight": {
+        "count": 1,
+        "pct": 0.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"highlight_pos\": [121], \"s1s_context_info\": [\"%7B%22mixerCommonContext%22%3A%22..."
+      },
+      "quote_info": {
+        "count": 2,
+        "pct": 0.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"quote_items\": [{\"begin_offset\": 2, \"end_offset\": 4, \"pic_index\": 1, \"pic_url\":..."
+      }
+    }
+  },
+  {
+    "slug": "huashu",
+    "n_articles": 398,
+    "n_comments": 4328,
+    "fields": {
+      "aid": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "2247483653_1"
+      },
+      "title": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "解读张小龙所说的互联网本质"
+      },
+      "cover": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qlogo.cn/mmbiz_jpg/HRdaeEmxNHY4ZvddW2Vvp8JwKPgPJEPQ1jXRWHj8yltTYpz..."
+      },
+      "link": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mp.weixin.qq.com/s/cWR_kDPPWRRLRfQxJ4HFMg"
+      },
+      "digest": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "在2018年12月12日的腾讯年会上，张小龙在他的发言中提到“互联网的本质是消除信息不对称”，但互联网世界上"
+      },
+      "update_time": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1544683487"
+      },
+      "appmsgid": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "2247483653"
+      },
+      "itemidx": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "item_show_type": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "author_name": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "华生"
+      },
+      "tagid": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "list[empty]"
+        ],
+        "sample": null
+      },
+      "create_time": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1544683487"
+      },
+      "is_pay_subscribe": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "has_red_packet_cover": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "album_id": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "0"
+      },
+      "checking": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "media_duration": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "0:00"
+      },
+      "mediaapi_publish_status": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "copyright_type": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "appmsg_album_infos": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"id\": \"3064264354587557893\", \"title\": \"ChatGPT\", \"album_id\": 30642643545875580..."
+      },
+      "pay_album_info": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"appmsg_album_infos\": []}"
+      },
+      "is_deleted": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "ban_flag": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "pic_cdn_url_235_1": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qlogo.cn/mmbiz_jpg/HRdaeEmxNHY4ZvddW2Vvp8JwKPgPJEPQcMK5FXMicBdahnj..."
+      },
+      "pic_cdn_url_16_9": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/HRdaeEmxNHalHaljmCyXSvOVxwEjp05sOtgKJFWCE7jlTXCJ..."
+      },
+      "pic_cdn_url_3_4": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_jpg/HRdaeEmxNHaPcD4NibrtHicibzjuzGPm9IovXYJbzgpeaHs2..."
+      },
+      "pic_cdn_url_1_1": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qlogo.cn/mmbiz_jpg/HRdaeEmxNHY4ZvddW2Vvp8JwKPgPJEPQ1jXRWHj8yltTYpz..."
+      },
+      "line_info": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"use_line\": 1, \"line_count\": 0, \"is_appmsg_flag\": 1, \"is_use_flag\": 0}"
+      },
+      "copyright_stat": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_rumor_refutation": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "multi_picture_cover": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "share_imageinfo": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"file_id\": 100000156, \"cdn_url\": \"https://mmbiz.qpic.cn/mmbiz_png/HRdaeEmxNHaP..."
+      },
+      "fakeid": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "Mzg2OTA1OTAxNA=="
+      },
+      "_status": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "正常"
+      },
+      "_accountName": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "花叔"
+      },
+      "content": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "解读张小龙所说的互联网本质  在2018年12月12日的腾讯年会上，张小龙在他的发言中提到“互联网的本质是消除信息不对称”，但互联网世界上并未实质上消除信息不对..."
+      },
+      "readNum": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "153"
+      },
+      "oldLikeNum": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "3"
+      },
+      "shareNum": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "8"
+      },
+      "likeNum": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "commentNum": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "comments": {
+        "count": 398,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 0, \"bizattr_servicetype\": 0, \"can_share\": true, \"content..."
+      },
+      "is_user_title": {
+        "count": 17,
+        "pct": 4.3,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "cover_img_first": {
+        "count": 79,
+        "pct": 19.8,
+        "types": [
+          "str"
+        ],
+        "sample": "https://mmbiz.qpic.cn/mmbiz_png/HRdaeEmxNHaPcD4NibrtHicibzjuzGPm9IowveQJHia34PpA..."
+      },
+      "img_first_theme_color": {
+        "count": 79,
+        "pct": 19.8,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 255, \"g\": 255, \"b\": 255}"
+      },
+      "cover_img_3_4": {
+        "count": 79,
+        "pct": 19.8,
+        "types": [
+          "str"
+        ],
+        "sample": "http://mmbiz.qpic.cn/mmbiz_jpg/HRdaeEmxNHaPcD4NibrtHicibzjuzGPm9IovXYJbzgpeaHs2x..."
+      },
+      "img_3_4_theme_color": {
+        "count": 53,
+        "pct": 13.3,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 255, \"g\": 255, \"b\": 255}"
+      },
+      "cover_img": {
+        "count": 276,
+        "pct": 69.3,
+        "types": [
+          "str"
+        ],
+        "sample": "http://mmbiz.qpic.cn/mmbiz_jpg/HRdaeEmxNHY33eUUjdJm8tBvvdAcvvSBtKwTibnPRmer1libe..."
+      },
+      "cover_img_theme_color": {
+        "count": 276,
+        "pct": 69.3,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"r\": 245, \"g\": 245, \"b\": 245}"
+      },
+      "location_page_show": {
+        "count": 65,
+        "pct": 16.3,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_location_page_show": {
+        "count": 65,
+        "pct": 16.3,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "duration": {
+        "count": 10,
+        "pct": 2.5,
+        "types": [
+          "int"
+        ],
+        "sample": "1146"
+      },
+      "audio_info": {
+        "count": 1,
+        "pct": 0.3,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"audio_infos\": [{\"audio_id\": \"Mzg2OTA1OTAxNF8yMjQ3NDg1ODMy\", \"title\": \"扣子空间播客\",..."
+      }
+    },
+    "comment_fields": {
+      "author_like_status": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "bizattr_servicetype": {
+        "count": 4327,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "can_share": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "True"
+      },
+      "content": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "调用API&nbsp;翻译，哪怕是会员也要额外购买使用量，对吧？"
+      },
+      "content_id": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "5364985215850643722"
+      },
+      "create_time": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1730029368"
+      },
+      "dislike_status": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "id": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "identity_name": {
+        "count": 4327,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "oxied5psywu21bfmzDsyWq9Rhak0"
+      },
+      "identity_type": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "ip_wording": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"city_id\": \"\", \"city_name\": \"\", \"country_id\": \"036\", \"country_name\": \"澳大利亚\", \"p..."
+      },
+      "is_can_delete": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "is_elected": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "1"
+      },
+      "is_from": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_from_friend": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_from_me": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_reward": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "is_top": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "like_num": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "like_status": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "logo_url": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "https://wx.qlogo.cn/mmopen/ajNVdqHZLLD6swIBibnf1sWpnbBicHP1RhaSmOVxTOFglfNSnlCOq..."
+      },
+      "multi_info": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"emojis\": [], \"pictures\": []}"
+      },
+      "my_id": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "266"
+      },
+      "need_show_publish_tips": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "bool"
+        ],
+        "sample": "False"
+      },
+      "nick_name": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "客卿"
+      },
+      "openid": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "str"
+        ],
+        "sample": "oxied5psywu21bfmzDsyWq9Rhak0"
+      },
+      "party_flag": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "int"
+        ],
+        "sample": "0"
+      },
+      "reply_new": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"max_reply_id\": 1, \"reply_list\": [], \"reply_total_cnt\": 0}"
+      },
+      "$reply_list": {
+        "count": 4328,
+        "pct": 100.0,
+        "types": [
+          "list[empty]",
+          "list[object]"
+        ],
+        "sample": "[{\"author_like_status\": 0, \"bizattr_servicetype\": 0, \"can_share\": true, \"content..."
+      },
+      "highlight": {
+        "count": 66,
+        "pct": 1.5,
+        "types": [
+          "object"
+        ],
+        "sample": "{\"highlight_pos\": [46], \"s1s_context_info\": [\"%7B%22mixerCommonContext%22%3A%22%..."
+      }
+    }
+  }
+]

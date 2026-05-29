@@ -1,0 +1,128 @@
+# ==================== 凭证 / 密钥(P0)====================
+.env
+.env.*
+*.env
+!.env.example
+.env.rsshub
+tools/.wechat_token.json
+**/.wechat_token.json
+**/wechat_token*.json
+corpus/_credentials_backup/
+**/_credentials_backup/
+**/credentials_*.json
+**/*token*.json
+**/*cookies*.json
+.cookies
+*.key
+*.pem
+.netrc
+
+# ==================== 大数据 / 衍生数据 ====================
+db.sqlite
+*.sqlite
+*.sqlite3
+*.db
+*.parquet
+models/
+
+# ==================== Python 缓存 ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ==================== Node ====================
+node_modules/
+*.tsbuildinfo
+
+# ==================== Cloudflare Wrangler 缓存(含 account ID/邮箱)====================
+**/.wrangler/
+**/wrangler-account.json
+
+# ==================== 临时 / 暂存 / 备份 ====================
+_staging/
+backups/
+tools/_archive/
+*.bak
+*.tmp
+*.swp
+*~
+.~lock.*
+
+# ==================== 系统文件 ====================
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ==================== 嵌套 git 项目(各自有 .git,不能纳入)====================
+# 改用 vendor/* 而不是 vendor/ — git 父目录排除后子 negate 无效,
+# vendor/* 只排除 vendor/ 第一层但 vendor/ 自身可索引,允许子级 negate
+vendor/*
+md2wechat-skill/
+wechat-article-publisher-skill/
+
+# 例外:fengyun-publish skill 镜像必须跟踪(W1.1 决策, 2026-05-27)
+# 原因: ~/.claude/skills/fengyun-publish/ 是 user-level skill, git 不跟踪
+# 镜像到 vendor/skills/fengyun-publish/ 才能让 rollback 安全
+!vendor/skills/
+!vendor/skills/fengyun-publish/
+!vendor/skills/fengyun-publish/**
+
+# ==================== 输出:仅保留文档/草稿,中间态全忽略 ====================
+output/runs/
+output/render/
+output/html/
+output/candidates/
+output/stability/
+output/cookie_alert_state.json
+output/test-huashu/
+output/images/
+output/covers/
+
+# ==================== IDE ====================
+.vscode/
+.idea/
+*.log
+
+# ==================== 杂项 ====================
+fengyun_anchor*.parquet
+fengyun_anchor*.json
+
+# ==================== Corpus 全目录(开源版本移除,版权问题,见 NOTICE.md)====================
+corpus/
+
+# ==================== 草稿 / 调研笔记 / verdict(过程文档,不进开源仓库)====================
+output/drafts/
+output/research/
+output/verdicts/
+**/微信公众号文章.json
+
+# ==================== 二进制工具 / 图片 ====================
+*.exe
+*.dll
+*.gif
+bin/__pycache__/
+reference_images/
+
+# 大于 ~1MB 的栅格图(参考资料,可单独同步)
+*.jpg
+*.jpeg
+*.png
+# 但保留 placeholder 兜底图(Round 25 必需)
+!assets/placeholder-sketch.png
+!assets/**/*.png
+
+# 保留 docs/ 下的图片(架构图、流程图等文档资产)
+!docs/**/*.png
+!docs/**/*.jpg
+!docs/**/*.svg

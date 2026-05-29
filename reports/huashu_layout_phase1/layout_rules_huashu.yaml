@@ -1,0 +1,294 @@
+# 花叔(赛博禅心)排版规则 — 逆向工程产物
+# 数据源:6 篇真实文章(2026-05-12 ~ 2026-05-23)
+# 辩论:Musk × Jobs × 审判官 2026-05-24
+# 接入:fengyun-publish Step 4/8
+#
+# 使用:writer 在 frontmatter 写 `style: huashu` + `theme: A|B` + `article_type: tech_demo|thought_essay`
+# render 时按本文件配置切换
+
+meta:
+  name: huashu
+  source: "6 articles from 赛博禅心 (2026-05-12 ~ 2026-05-23)"
+  evidence: "reports/huashu_layout_phase1/agent[1-6]_*.md"
+  templates: [A, B]
+  default_template: A
+
+# ============================================================
+# 模板 A:暖橙主色(5/6 篇)
+# 适用:绝大多数选题,默认
+# ============================================================
+template_A:
+  name: "暖橙主色 (默认)"
+  evidence: "5/6 articles"
+
+  colors:
+    primary: "#C15F3C"        # 赤陶橙,主强调色
+    primary_translucent: "rgba(193,95,60,0.08)"  # strong 背景
+    primary_shadow: "rgba(193,95,60,0.1)"        # 图片阴影
+    secondary: "#9DC88D"      # 薄荷绿,仅用于 H2 渐变终点
+    text_main: "#2b2b2b"      # 正文深暖黑
+    background: "#faf9f7"     # 暖米白
+    # 不使用的颜色:#999(暗黑模式不可见)、纯黑、纯白
+
+  typography:
+    body:
+      font_size: "17px !important"
+      line_height: "1.8 !important"
+      color: "#2b2b2b"
+      letter_spacing: "-0.005em"
+      font_weight: 400
+      margin: "20px 0"
+
+    h2:
+      font_size: "20px"   # 由 #6 调研补全,5/6 一致
+      font_weight: 600
+      letter_spacing: "-0.015em"
+      margin_top: "32px"
+      margin_bottom: "16px"
+      # 关键签名:橙绿线性渐变 + 文字裁剪
+      style_extra: |
+        background: linear-gradient(135deg, #C15F3C 0%, #9DC88D 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+    strong:
+      color: "#C15F3C"
+      background: "rgba(193,95,60,0.08)"
+      padding: "2px 6px"
+      border_radius: "3px"
+      font_weight: 600
+
+  whitespace:
+    paragraph_margin: "20px 0"
+    h2_margin_top: "32px"
+    h2_margin_bottom: "16px"
+    image_margin: "24px 0"
+    # 跨 6 篇误差 ±2px(report #6)
+
+  images:
+    max_height: "500px !important"   # 6/6 严格一致
+    border_radius: "10px"
+    box_shadow: "0 6px 24px rgba(193,95,60,0.1)"
+    block_centered: true
+    full_width: true
+    figcaption: false              # 不用,改用 alt
+    alt_required: true
+    alt_length_chars: [20, 40]      # 实质性描述
+
+# ============================================================
+# 模板 B:深红专题(1/6 篇,显式触发)
+# 适用:中国大厂产品评论 / 特定主题切换
+# 默认不触发,writer 显式 theme: B 才用
+# ============================================================
+template_B:
+  name: "深红专题 (显式触发)"
+  evidence: "1/6 articles (微信读书 skill 评测)"
+  trigger: "explicit frontmatter only (theme: B)"
+
+  colors:
+    primary: "#d32f2f"        # 深红
+    text_main: "#2b2b2b"
+    background: "#ffffff"     # 纯白容器
+    # T-B 不用渐变副色
+
+  typography:
+    body:
+      font_size: "17px"
+      line_height: "1.85"      # 比 T-A 略宽
+      color: "#2b2b2b"
+      font_weight: 400
+      margin: "20px 0"
+
+    h2:
+      # T-B 风格变:白字 + 红色块背景,不用渐变
+      style: "白字 + #d32f2f 色块背景"
+      color: "#fff"
+      background: "#d32f2f"
+      padding: "8px 16px"
+      border_radius: "4px"
+      font_weight: 700
+      margin_top: "32px"
+      margin_bottom: "16px"
+
+    strong:
+      color: "#d32f2f"
+      font_weight: 700    # T-B 升 700
+
+  images:
+    max_height: "500px !important"
+    border: "2px solid #d32f2f"
+    border_radius: "6px"
+
+# ============================================================
+# 共通规则(两模板都用)
+# ============================================================
+common:
+  # 排版组件使用频率(每篇)
+  components:
+    h1: { min: 0, max: 1, note: "可有可无,通常无 H1" }
+    h2: { min: 3, max: 7, note: "章节数,见调研 #3 范围" }
+    h3: { min: 0, max: 3, note: "罕见" }
+    strong:
+      min: 8
+      max: 20
+      target: 14
+      note: "唯一全篇通用排版武器(report #2)"
+    blockquote:
+      min: 0
+      max: 1
+      note: "几乎不用(1/6 篇,1 次)"
+    hr:
+      min: 0
+      max: 1
+      position: "末尾"
+      note: "只在文章末尾(3/6 篇)"
+    emoji:
+      max: 0
+      note: "硬规则,任何 emoji 即 lint fail"
+    cta:
+      max: 0
+      note: "硬规则,任何'点赞/转发/关注/二维码 footer'即 fail"
+
+  # 图文策略
+  imagery:
+    first_image:
+      must_within_chars: 300       # 必在 300 字内
+      must_within_paragraphs: 5    # 前 5 段内
+      type: "话题凭证(数据/界面截图),禁装饰图"
+    density_by_article_type:
+      tech_demo:
+        paragraphs_per_image: 4.5
+        min: 4
+        max: 5
+      thought_essay:
+        paragraphs_per_image: 8.5
+        min: 7
+        max: 10
+    type_division:
+      tech_demo: "截图为主(50%+)"
+      thought_essay: "AI 插画为主(60%+)"
+      rule: "不混用 — 一篇文章要么截图主导,要么插画主导"
+    end_image: "不强制末图收尾(4-5/6 末图后还有段)"
+
+  # 节奏目标(供 writer 参考,lint 用 warn 检查)
+  rhythm_targets:
+    avg_paragraph_length:
+      target: 59
+      acceptable: [50, 80]
+      unit: "中文字数"
+    short_paragraph_ratio:
+      target: 0.327
+      min: 0.25
+      note: "<50 字的段落占比"
+    solo_lines_per_article:
+      target: 7
+      min: 4
+      note: "<20 字独段成行(转折/收束/情绪)"
+    long_paragraph_ratio:
+      target: 0.035
+      max: 0.08
+      note: ">200 字的段落占比"
+    three_part_wave:
+      target: 5
+      min: 4
+      pattern: "短铺垫(<30) → 中论证(60-130) → 独段结论(<15)"
+      note: "每篇必出 4-6 次"
+    punctuation:
+      question_marks_per_1000: 2.8
+      ellipsis_max: 1
+      note: "高反问率(2.8 倍科普平均),禁省略号"
+
+  # 开头结尾模板
+  opening:
+    max_chars: 62
+    hooks:
+      - "时间锚(昨天/凌晨/前几天) + 事件,频率 4/6"
+      - "直接结论"
+      - "提问"
+    forbidden:
+      - "大家好"
+      - "今天聊聊"
+      - "我们都知道"
+      - "在这个 X 的时代"
+
+  closing:
+    chars: [10, 60]
+    style: "戛然而止 / 点题留白 / 开放邀请"
+    forbidden:
+      - "点赞"
+      - "转发"
+      - "关注"
+      - "求三连"
+      - "二维码"
+      - "扫码加群"
+
+  # H2 标题三选一(writer 必选其一)
+  h2_patterns:
+    - id: "concept_statement"
+      name: "概念陈述句"
+      example: "它解决的不是 AI 的问题,是人的问题"
+      pattern: "主谓宾完整 + 带断言"
+    - id: "spoken_action"
+      name: "口语动词句"
+      example: "我把 Qwen3.7 接进了 Claude Code"
+      pattern: "第一人称 + 具体动作"
+    - id: "numeric_chinese"
+      name: "汉字数字编号"
+      example: ["一", "二", "三"]
+      pattern: "纯序号,需要全篇统一这么用"
+
+  # 翻译句机制(写在 writer skill,layout 不识别)
+  translation_phrases:
+    target_density: "每 800-1200 字至少 1 处"
+    patterns:
+      - "翻译成 X 视角就是 Y"
+      - "翻译到 X 时代就是 Y"
+      - "换成 X 的话就是 Y"
+    note: "writer 层任务,layout 仅按 strong 规则渲染"
+
+# ============================================================
+# lint 新规则(R19-R25)
+# ============================================================
+lint_rules:
+  - id: R19
+    name: avg_paragraph_length
+    check: "50 <= avg(paragraph_chars) <= 80"
+    severity: warn
+    message: "花叔风格平均段长 59 字,当前 {value}"
+
+  - id: R20
+    name: solo_line_count
+    check: "count(paragraph where chars < 20) >= 4"
+    severity: warn
+    message: "花叔风格独段成行 6-9 次/篇,当前 {value}"
+
+  - id: R21
+    name: h2_pattern_match
+    check: "每个 H2 命中 3 种模式之一"
+    severity: warn
+    message: "H2 不符合花叔三种模式:{h2_text}"
+
+  - id: R22
+    name: emoji_zero
+    check: "emoji_count == 0"
+    severity: fail
+    message: "花叔风格 emoji 数必须为 0,检测到 {count} 个"
+
+  - id: R23
+    name: cta_zero
+    check: "cta_count == 0"
+    severity: fail
+    forbidden_patterns: ["点赞", "转发", "关注", "求三连", "二维码", "扫码"]
+    message: "花叔风格结尾零 CTA,检测到:{matches}"
+
+  - id: R24
+    name: long_paragraph_ratio
+    check: "long_paragraph_count / total <= 0.08"
+    severity: warn
+    message: "长段(>200)占比超过 8%,当前 {value:.1%}"
+
+  - id: R25
+    name: ellipsis_max
+    check: "ellipsis_count <= 1"
+    severity: warn
+    message: "花叔风格几乎不用省略号,当前 {count} 处"

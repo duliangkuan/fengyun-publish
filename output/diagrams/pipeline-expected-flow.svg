@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1400" font-family="'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#818cf8"/></marker>
+  </defs>
+
+  <rect width="1000" height="1400" fill="url(#bg2)"/>
+
+  <!-- Title -->
+  <text x="500" y="45" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="bold">fengyun-publish 理想流程 (SKILL.md L0→L7)</text>
+  <text x="500" y="70" text-anchor="middle" fill="#94a3b8" font-size="13">全自动化 · 三轨并行 · 一次 gate 通过</text>
+
+  <!-- Step 1 ITI -->
+  <rect x="60" y="100" width="880" height="90" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="125" fill="#818cf8" font-size="14" font-weight="bold">Step 1 · ITI I-1 数据驱动选题</text>
+  <text x="80" y="148" fill="#c7d2fe" font-size="12">iti_collect.py (5 信源聚合) → topic_recommender.py (PHASE1 排序) → event_dedup.py (7 天去重)</text>
+  <text x="80" y="168" fill="#c7d2fe" font-size="12">WebSearch 4-6 queries 补位 → 合并去重 → Top 10 候选 → 风云二筛</text>
+  <text x="80" y="185" fill="#6366f1" font-size="10">输出: slug + north_star + event_dedup=False</text>
+
+  <line x1="500" y1="190" x2="500" y2="210" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 1.5 -->
+  <rect x="60" y="210" width="880" height="90" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="235" fill="#818cf8" font-size="14" font-weight="bold">Step 1.5 · Dogfood Gate (harness 循环, ≤3 次)</text>
+  <text x="80" y="258" fill="#c7d2fe" font-size="12">fengyun-writer skill 试稿模式 (200 字开头) → opening_signal.py (3 关评分)</text>
+  <text x="80" y="278" fill="#c7d2fe" font-size="12">opening_dedup.py (30 天去重) → content-judge D-1 (5 分量 voice 判定)</text>
+  <text x="80" y="295" fill="#6366f1" font-size="10">输出: accepted_trial + dogfood_gate={pass, confidence}</text>
+
+  <line x1="500" y1="300" x2="500" y2="320" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 2 -->
+  <rect x="60" y="320" width="880" height="90" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="345" fill="#818cf8" font-size="14" font-weight="bold">Step 2 · ITI I-2 深搜调研</text>
+  <text x="80" y="368" fill="#c7d2fe" font-size="12">WebSearch 中英文 4 次 + WebFetch 核心源 2-3 URL + aihot + corpus grep</text>
+  <text x="80" y="388" fill="#c7d2fe" font-size="12">iti_explore.py (5 本地+API 源) → merge_with_websearch → 15-25 条事实</text>
+  <text x="80" y="405" fill="#6366f1" font-size="10">输出: output/research/<slug>.md (北极星 + 事实清单 + 角度候选)</text>
+
+  <line x1="500" y1="410" x2="500" y2="430" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 3 -->
+  <rect x="60" y="430" width="880" height="80" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="455" fill="#818cf8" font-size="14" font-weight="bold">Step 3 · fengyun-writer 全流程 (8-15 min)</text>
+  <text x="80" y="478" fill="#c7d2fe" font-size="12">voice-dna.md + corpus 3-5 篇 → Step -1 北极星 → Step 0 语感 → Step 1 调研 → Step 2 写作 (4000-5000 字)</text>
+  <text x="80" y="498" fill="#c7d2fe" font-size="12">frontmatter: writer_pass + writer_real_run + writer_source (P0-6 防伪)</text>
+
+  <line x1="500" y1="510" x2="500" y2="530" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 3.3 + 3.5 parallel -->
+  <rect x="60" y="530" width="430" height="80" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="555" fill="#818cf8" font-size="13" font-weight="bold">Step 3.3 · 标题 harness (≤3 次)</text>
+  <text x="80" y="575" fill="#c7d2fe" font-size="11">title_signal.py (PHASE1 6 维) + title_dedup.py</text>
+  <text x="80" y="595" fill="#c7d2fe" font-size="11">→ title_pass + title_real_run + title_source</text>
+
+  <rect x="510" y="530" width="430" height="80" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="530" y="555" fill="#818cf8" font-size="13" font-weight="bold">Step 3.5 · 结尾 harness (≤3 次)</text>
+  <text x="530" y="575" fill="#c7d2fe" font-size="11">ending_signal.py (3 关) + ending_dedup.py</text>
+  <text x="530" y="595" fill="#c7d2fe" font-size="11">→ ending_pass + ending_real_run + ending_source</text>
+
+  <line x1="500" y1="610" x2="500" y2="630" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 4 + 4.5 -->
+  <rect x="60" y="630" width="430" height="70" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="655" fill="#818cf8" font-size="13" font-weight="bold">Step 4 · Lint (循环到 0 violation)</text>
+  <text x="80" y="675" fill="#c7d2fe" font-size="11">fengyun_lint.py → fix_punctuation.py → Edit</text>
+  <text x="80" y="692" fill="#c7d2fe" font-size="11">→ lint_pass: true</text>
+
+  <rect x="510" y="630" width="430" height="70" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="530" y="655" fill="#818cf8" font-size="13" font-weight="bold">Step 4.5 · humanizer-zh (必跑)</text>
+  <text x="530" y="675" fill="#c7d2fe" font-size="11">humanizer-zh skill → 24 条模式检测</text>
+  <text x="530" y="692" fill="#c7d2fe" font-size="11">→ humanizer_pass + real_run + source</text>
+
+  <line x1="500" y1="700" x2="500" y2="720" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 5 -->
+  <rect x="60" y="720" width="880" height="60" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="745" fill="#818cf8" font-size="13" font-weight="bold">Step 5 · 王小波语感预审</text>
+  <text x="80" y="770" fill="#c7d2fe" font-size="12">wangxiaobo-perspective skill → 翻译腔诊断 → 修复 → 重跑 lint → wangxiaobo_pass + real_run + source</text>
+
+  <line x1="500" y1="780" x2="500" y2="800" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 6 Parallel -->
+  <rect x="60" y="800" width="880" height="110" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="825" fill="#818cf8" font-size="14" font-weight="bold">Step 6 · Critic 三轨并行 Vote</text>
+
+  <rect x="80" y="835" width="260" height="30" rx="4" fill="#312e81" stroke="#818cf8" stroke-width="1"/>
+  <text x="90" y="855" fill="#c7d2fe" font-size="11">Track A: score_draft.py → total ≥60</text>
+
+  <rect x="360" y="835" width="260" height="30" rx="4" fill="#312e81" stroke="#818cf8" stroke-width="1"/>
+  <text x="370" y="855" fill="#c7d2fe" font-size="11">Track B: huashu-perspective → ship/?</text>
+
+  <rect x="640" y="835" width="260" height="30" rx="4" fill="#312e81" stroke="#818cf8" stroke-width="1"/>
+  <text x="650" y="855" fill="#c7d2fe" font-size="11">Track C: content-judge → 挂名/?</text>
+
+  <text x="80" y="885" fill="#c7d2fe" font-size="12">gate_tree: A≥60 + B ship + C ship → ship | revise → Step 6.5 (≤3 轮)</text>
+  <text x="80" y="905" fill="#6366f1" font-size="10">7 个 frontmatter 字段: critic_{a,b,c}_real_run + critic_{a,b,c}_source + critic_vote_pass</text>
+
+  <line x1="500" y1="910" x2="500" y2="930" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 7 -->
+  <rect x="60" y="930" width="430" height="90" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="955" fill="#818cf8" font-size="13" font-weight="bold">Step 7 · 封面 (Seedream)</text>
+  <text x="80" y="975" fill="#c7d2fe" font-size="11">generate_cover_by_template.py</text>
+  <text x="80" y="992" fill="#c7d2fe" font-size="11">cover_dedup → 7 模板路由 → 英文加固</text>
+  <text x="80" y="1009" fill="#c7d2fe" font-size="11">→ cover_pass + cover_path</text>
+
+  <rect x="510" y="930" width="430" height="90" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="530" y="955" fill="#818cf8" font-size="13" font-weight="bold">Step 7.2 · 内文图 (花叔决策)</text>
+  <text x="530" y="975" fill="#c7d2fe" font-size="11">illustrate_decider (预筛) → huashu-image-curator Mode 2</text>
+  <text x="530" y="992" fill="#c7d2fe" font-size="11">→ Seedream 出图 (0-5 张) → write_metadata</text>
+  <text x="530" y="1009" fill="#c7d2fe" font-size="11">→ huashu_decision_pass + image_at_h2_indices</text>
+
+  <line x1="500" y1="1020" x2="500" y2="1040" stroke="#818cf8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 8 -->
+  <rect x="60" y="1040" width="880" height="70" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+  <text x="80" y="1065" fill="#818cf8" font-size="14" font-weight="bold">Step 8 · 排版 + 推草稿 (1 次通过)</text>
+  <text x="80" y="1088" fill="#c7d2fe" font-size="12">gate.py preflight PASS → post_fengyun_publish.py → layout_rules huashu → 上传封面+内文图 → 创建草稿</text>
+  <text x="80" y="1105" fill="#6366f1" font-size="10">输出: media_id → 公众号后台草稿箱</text>
+
+  <!-- Result -->
+  <rect x="60" y="1130" width="880" height="50" rx="8" fill="#312e81" stroke="#818cf8" stroke-width="3" filter="url(#glow2)"/>
+  <text x="500" y="1162" text-anchor="middle" fill="#e0e7ff" font-size="16" font-weight="bold">草稿推送成功 → 风云草稿箱审阅 → 发出</text>
+
+  <!-- Stats -->
+  <rect x="60" y="1200" width="880" height="180" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="80" y="1225" fill="#e2e8f0" font-size="14" font-weight="bold">理想执行预期</text>
+  <text x="80" y="1250" fill="#94a3b8" font-size="12">Steps: 9 步 (含子步 13) | 全自动 | 0 次手动介入</text>
+  <text x="80" y="1275" fill="#94a3b8" font-size="12">Skill 调用: 7/7 全部真调 (fengyun-writer, humanizer-zh, wangxiaobo, huashu, content-judge, huashu-image-curator)</text>
+  <text x="80" y="1300" fill="#94a3b8" font-size="12">Python 脚本: 12/12 全部自动跑</text>
+  <text x="80" y="1325" fill="#94a3b8" font-size="12">WebSearch + WebFetch + aihot 全部可用</text>
+  <text x="80" y="1350" fill="#94a3b8" font-size="12">gate.py: 0 次阻断 (所有字段在 Step 内自动写入)</text>
+  <text x="80" y="1375" fill="#818cf8" font-size="12" font-weight="bold">总耗时预期: 30-50 min (顺利) / 80-100 min (3 轮改稿)</text>
+</svg>

@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" font-family="'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="900" fill="url(#bg3)"/>
+
+  <text x="500" y="40" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="bold">实际 vs 预期 差距分析</text>
+  <text x="500" y="65" text-anchor="middle" fill="#94a3b8" font-size="12">13 个维度 · 6 项一致 · 4 项部分偏差 · 3 项重大偏差</text>
+
+  <!-- Table header -->
+  <rect x="30" y="85" width="940" height="35" rx="4" fill="#1e293b"/>
+  <text x="55" y="108" fill="#94a3b8" font-size="12" font-weight="bold">维度</text>
+  <text x="280" y="108" fill="#94a3b8" font-size="12" font-weight="bold">预期</text>
+  <text x="530" y="108" fill="#94a3b8" font-size="12" font-weight="bold">实际</text>
+  <text x="780" y="108" fill="#94a3b8" font-size="12" font-weight="bold">差距</text>
+
+  <!-- Row 1: Topic Selection -->
+  <rect x="30" y="125" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="150" fill="#e2e8f0" font-size="12">1. 数据驱动选题</text>
+  <text x="280" y="150" fill="#c7d2fe" font-size="11">iti_collect + topic_recommender</text>
+  <text x="530" y="150" fill="#facc15" font-size="11">手动 curl aihot + 人工排序</text>
+  <rect x="770" y="135" width="180" height="25" rx="12" fill="#854d0e"/>
+  <text x="860" y="153" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">部分偏差</text>
+
+  <!-- Row 2: Dogfood -->
+  <rect x="30" y="175" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="200" fill="#e2e8f0" font-size="12">2. Dogfood Gate</text>
+  <text x="280" y="200" fill="#c7d2fe" font-size="11">fengyun-writer 试稿 + 3 关自动</text>
+  <text x="530" y="200" fill="#facc15" font-size="11">手写开头 + opening_signal.py</text>
+  <rect x="770" y="185" width="180" height="25" rx="12" fill="#854d0e"/>
+  <text x="860" y="203" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">部分偏差</text>
+
+  <!-- Row 3: Research -->
+  <rect x="30" y="225" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="250" fill="#e2e8f0" font-size="12">3. 深搜调研</text>
+  <text x="280" y="250" fill="#c7d2fe" font-size="11">WebSearch + WebFetch + iti_explore</text>
+  <text x="530" y="250" fill="#f87171" font-size="11">仅 aihot API (WebSearch 不可用, WebFetch 反爬)</text>
+  <rect x="770" y="235" width="180" height="25" rx="12" fill="#7f1d1d"/>
+  <text x="860" y="253" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">重大偏差</text>
+
+  <!-- Row 4: Draft -->
+  <rect x="30" y="275" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="300" fill="#e2e8f0" font-size="12">4. 初稿写作</text>
+  <text x="280" y="300" fill="#c7d2fe" font-size="11">fengyun-writer skill 全自动</text>
+  <text x="530" y="300" fill="#facc15" font-size="11">skill 被 invoke 但主线程手写</text>
+  <rect x="770" y="285" width="180" height="25" rx="12" fill="#854d0e"/>
+  <text x="860" y="303" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">部分偏差</text>
+
+  <!-- Row 5: Title harness -->
+  <rect x="30" y="325" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="350" fill="#e2e8f0" font-size="12">5. 标题 harness</text>
+  <text x="280" y="350" fill="#c7d2fe" font-size="11">title_signal + title_dedup 自动</text>
+  <text x="530" y="350" fill="#4ade80" font-size="11">title_signal + title_dedup 自动 ✅</text>
+  <rect x="770" y="335" width="180" height="25" rx="12" fill="#14532d"/>
+  <text x="860" y="353" text-anchor="middle" fill="#86efac" font-size="11" font-weight="bold">一致</text>
+
+  <!-- Row 6: Ending harness -->
+  <rect x="30" y="375" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="400" fill="#e2e8f0" font-size="12">6. 结尾 harness</text>
+  <text x="280" y="400" fill="#c7d2fe" font-size="11">ending_signal + ending_dedup 自动</text>
+  <text x="530" y="400" fill="#4ade80" font-size="11">ending_signal + ending_dedup 自动 ✅</text>
+  <rect x="770" y="385" width="180" height="25" rx="12" fill="#14532d"/>
+  <text x="860" y="403" text-anchor="middle" fill="#86efac" font-size="11" font-weight="bold">一致</text>
+
+  <!-- Row 7: Lint -->
+  <rect x="30" y="425" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="450" fill="#e2e8f0" font-size="12">7. 机械 Lint</text>
+  <text x="280" y="450" fill="#c7d2fe" font-size="11">0 violations (循环清零)</text>
+  <text x="530" y="450" fill="#facc15" font-size="11">3 violations (R13/R19/R20, partial_pass)</text>
+  <rect x="770" y="435" width="180" height="25" rx="12" fill="#854d0e"/>
+  <text x="860" y="453" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">部分偏差</text>
+
+  <!-- Row 8: Humanizer -->
+  <rect x="30" y="475" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="500" fill="#e2e8f0" font-size="12">8. Humanizer-zh</text>
+  <text x="280" y="500" fill="#c7d2fe" font-size="11">humanizer-zh skill 真调</text>
+  <text x="530" y="500" fill="#4ade80" font-size="11">humanizer-zh skill 真调 ✅</text>
+  <rect x="770" y="485" width="180" height="25" rx="12" fill="#14532d"/>
+  <text x="860" y="503" text-anchor="middle" fill="#86efac" font-size="11" font-weight="bold">一致</text>
+
+  <!-- Row 9: Wang Xiaobo -->
+  <rect x="30" y="525" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="550" fill="#e2e8f0" font-size="12">9. 王小波预审</text>
+  <text x="280" y="550" fill="#c7d2fe" font-size="11">wangxiaobo-perspective skill 真调</text>
+  <text x="530" y="550" fill="#4ade80" font-size="11">wangxiaobo-perspective skill 真调 ✅</text>
+  <rect x="770" y="535" width="180" height="25" rx="12" fill="#14532d"/>
+  <text x="860" y="553" text-anchor="middle" fill="#86efac" font-size="11" font-weight="bold">一致</text>
+
+  <!-- Row 10: Critic -->
+  <rect x="30" y="575" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="600" fill="#e2e8f0" font-size="12">10. Critic 三轨</text>
+  <text x="280" y="600" fill="#c7d2fe" font-size="11">三轨并行 (A+B+C 同时)</text>
+  <text x="530" y="600" fill="#f87171" font-size="11">A 先跑, B/C 延迟补跑 (非并行)</text>
+  <rect x="770" y="585" width="180" height="25" rx="12" fill="#7f1d1d"/>
+  <text x="860" y="603" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">重大偏差</text>
+
+  <!-- Row 11: Cover -->
+  <rect x="30" y="625" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="650" fill="#e2e8f0" font-size="12">11. 封面 + 内文图</text>
+  <text x="280" y="650" fill="#c7d2fe" font-size="11">Seedream + huashu-image-curator 真调</text>
+  <text x="530" y="650" fill="#4ade80" font-size="11">封面 ✅ + 内文图 1 张 (花叔未真调)</text>
+  <rect x="770" y="635" width="180" height="25" rx="12" fill="#14532d"/>
+  <text x="860" y="653" text-anchor="middle" fill="#86efac" font-size="11" font-weight="bold">基本一致</text>
+
+  <!-- Row 12: Publish -->
+  <rect x="30" y="675" width="940" height="45" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="55" y="700" fill="#e2e8f0" font-size="12">12. 推草稿</text>
+  <text x="280" y="700" fill="#c7d2fe" font-size="11">gate 0 阻断 → 1 次通过</text>
+  <text x="530" y="700" fill="#f87171" font-size="11">gate 3 次阻断 → 手动补字段后通过</text>
+  <rect x="770" y="685" width="180" height="25" rx="12" fill="#7f1d1d"/>
+  <text x="860" y="703" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="bold">重大偏差</text>
+
+  <!-- Summary -->
+  <rect x="30" y="740" width="940" height="140" rx="8" fill="#0f172a" stroke="#4ade80" stroke-width="2"/>
+  <text x="55" y="770" fill="#e2e8f0" font-size="16" font-weight="bold">差距总结</text>
+
+  <rect x="55" y="785" width="12" height="12" rx="2" fill="#4ade80"/>
+  <text x="75" y="796" fill="#94a3b8" font-size="12">一致: 5/13 (标题/结尾/humanizer/王小波/封面)</text>
+
+  <rect x="55" y="808" width="12" height="12" rx="2" fill="#facc15"/>
+  <text x="75" y="819" fill="#94a3b8" font-size="12">部分偏差: 4/13 (选题/dogfood/写作/lint)</text>
+
+  <rect x="55" y="831" width="12" height="12" rx="2" fill="#f87171"/>
+  <text x="75" y="842" fill="#94a3b8" font-size="12">重大偏差: 3/13 (深搜/三轨并行/gate 合规)</text>
+
+  <text x="55" y="868" fill="#818cf8" font-size="13" font-weight="bold">根因: 环境限制 (WebSearch 不可用) + 未跑自动化脚本 (6/12) + gate 字段未预写</text>
+</svg>

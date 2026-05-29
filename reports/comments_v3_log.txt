@@ -1,0 +1,283 @@
+=== 加载评论 ===
+  原始评论: 75,556
+  清洗后:   74,175
+
+=== Step 1: 跑 embedding (SiliconFlow BGE) ===
+  ⚠ 部分缓存 27520/74175,从断点续跑
+  [SiliconFlow] 调用 BAAI/bge-m3,batch_size=32,每条截断 2000 字,从 idx=27520 起跑
+  ... 28,160/74,175  (10316/s, 剩 0.1 min)
+  ... 28,800/74,175  (5267/s, 剩 0.1 min)
+  ... 29,440/74,175  (3676/s, 剩 0.2 min)
+  ... 30,080/74,175  (2805/s, 剩 0.3 min)
+  ... 30,720/74,175  (2322/s, 剩 0.3 min)
+  ... 31,360/74,175  (1912/s, 剩 0.4 min)
+  ... 32,000/74,175  (1672/s, 剩 0.4 min)
+  ... 32,640/74,175  (1477/s, 剩 0.5 min)
+  ... 33,280/74,175  (1339/s, 剩 0.5 min)
+  ... 33,920/74,175  (1229/s, 剩 0.5 min)
+  ... 34,560/74,175  (1134/s, 剩 0.6 min)
+  ... 35,200/74,175  (1056/s, 剩 0.6 min)
+  ... 35,840/74,175  (990/s, 剩 0.6 min)
+  ... 36,480/74,175  (934/s, 剩 0.7 min)
+  ... 37,120/74,175  (886/s, 剩 0.7 min)
+  ... 37,760/74,175  (839/s, 剩 0.7 min)
+  ... 38,400/74,175  (804/s, 剩 0.7 min)
+  ... 39,040/74,175  (773/s, 剩 0.8 min)
+  ... 39,680/74,175  (746/s, 剩 0.8 min)
+  ... 40,320/74,175  (715/s, 剩 0.8 min)
+  ... 40,960/74,175  (674/s, 剩 0.8 min)
+  ... 41,600/74,175  (651/s, 剩 0.8 min)
+  ... 42,240/74,175  (632/s, 剩 0.8 min)
+  ... 42,880/74,175  (615/s, 剩 0.8 min)
+  ... 43,520/74,175  (598/s, 剩 0.9 min)
+  ... 44,160/74,175  (579/s, 剩 0.9 min)
+  ... 44,800/74,175  (565/s, 剩 0.9 min)
+  ... 45,440/74,175  (552/s, 剩 0.9 min)
+  ... 46,080/74,175  (540/s, 剩 0.9 min)
+  ... 46,720/74,175  (528/s, 剩 0.9 min)
+  ... 47,360/74,175  (516/s, 剩 0.9 min)
+  ... 48,000/74,175  (505/s, 剩 0.9 min)
+  ... 48,640/74,175  (495/s, 剩 0.9 min)
+  ... 49,280/74,175  (487/s, 剩 0.9 min)
+  ... 49,920/74,175  (478/s, 剩 0.8 min)
+  ... 50,560/74,175  (468/s, 剩 0.8 min)
+  ... 51,200/74,175  (460/s, 剩 0.8 min)
+  ... 51,840/74,175  (448/s, 剩 0.8 min)
+  ... 52,480/74,175  (436/s, 剩 0.8 min)
+  ... 53,120/74,175  (425/s, 剩 0.8 min)
+  ... 53,760/74,175  (415/s, 剩 0.8 min)
+  ... 54,400/74,175  (406/s, 剩 0.8 min)
+  ... 55,040/74,175  (397/s, 剩 0.8 min)
+  ... 55,680/74,175  (387/s, 剩 0.8 min)
+  ... 56,320/74,175  (378/s, 剩 0.8 min)
+  ... 56,960/74,175  (370/s, 剩 0.8 min)
+  ... 57,600/74,175  (364/s, 剩 0.8 min)
+  ... 58,240/74,175  (357/s, 剩 0.7 min)
+  ... 58,880/74,175  (351/s, 剩 0.7 min)
+  ... 59,520/74,175  (345/s, 剩 0.7 min)
+  ... 60,160/74,175  (338/s, 剩 0.7 min)
+  ... 60,800/74,175  (332/s, 剩 0.7 min)
+  ... 61,440/74,175  (327/s, 剩 0.6 min)
+  ... 62,080/74,175  (322/s, 剩 0.6 min)
+  ... 62,720/74,175  (318/s, 剩 0.6 min)
+  ... 63,360/74,175  (313/s, 剩 0.6 min)
+  ... 64,000/74,175  (310/s, 剩 0.5 min)
+  ... 64,640/74,175  (306/s, 剩 0.5 min)
+  ... 65,280/74,175  (302/s, 剩 0.5 min)
+  ... 65,920/74,175  (301/s, 剩 0.5 min)
+  ... 66,560/74,175  (298/s, 剩 0.4 min)
+  ... 67,200/74,175  (296/s, 剩 0.4 min)
+  ... 67,840/74,175  (294/s, 剩 0.4 min)
+  ... 68,480/74,175  (292/s, 剩 0.3 min)
+  ... 69,120/74,175  (290/s, 剩 0.3 min)
+  ... 69,760/74,175  (288/s, 剩 0.3 min)
+  ... 70,400/74,175  (283/s, 剩 0.2 min)
+  ... 71,040/74,175  (279/s, 剩 0.2 min)
+  ... 71,680/74,175  (276/s, 剩 0.2 min)
+  ... 72,320/74,175  (274/s, 剩 0.1 min)
+  ... 72,960/74,175  (273/s, 剩 0.1 min)
+  ... 73,600/74,175  (271/s, 剩 0.0 min)
+  ... 74,175/74,175  (270/s, 剩 0.0 min)
+  ✓ 完成 shape=(74175, 1024) 失败=0
+
+=== BERTopic 聚类 ===
+  ✓ 49.3s,主题数 117
+
+=== Step 2: 跑 sentiment (SiliconFlow Qwen-7B) ===
+  [DeepSeek] 调用 deepseek-v4-flash,batch_size=20,并发 workers=100
+  总 batch 数: 3709,并发提交...
+  ... 1,000/74,175  (117/s, 剩 10.4 min)
+  ... 2,000/74,175  (160/s, 剩 7.5 min)
+  ... 3,000/74,175  (171/s, 剩 6.9 min)
+  ... 4,000/74,175  (186/s, 剩 6.3 min)
+  ... 5,000/74,175  (187/s, 剩 6.2 min)
+  ... 6,000/74,175  (194/s, 剩 5.9 min)
+  ... 7,000/74,175  (195/s, 剩 5.7 min)
+  ... 8,000/74,175  (199/s, 剩 5.6 min)
+  ... 9,000/74,175  (204/s, 剩 5.3 min)
+  ... 10,000/74,175  (206/s, 剩 5.2 min)
+  ... 11,000/74,175  (206/s, 剩 5.1 min)
+  ... 12,000/74,175  (207/s, 剩 5.0 min)
+  ... 13,000/74,175  (207/s, 剩 4.9 min)
+  ... 14,000/74,175  (210/s, 剩 4.8 min)
+  ... 15,000/74,175  (210/s, 剩 4.7 min)
+  ... 16,000/74,175  (212/s, 剩 4.6 min)
+  ... 17,000/74,175  (211/s, 剩 4.5 min)
+  ... 18,000/74,175  (212/s, 剩 4.4 min)
+  ... 19,000/74,175  (214/s, 剩 4.3 min)
+  ... 20,000/74,175  (214/s, 剩 4.2 min)
+  ... 21,000/74,175  (215/s, 剩 4.1 min)
+  ... 22,000/74,175  (215/s, 剩 4.0 min)
+  ... 23,000/74,175  (217/s, 剩 3.9 min)
+  ... 24,000/74,175  (218/s, 剩 3.8 min)
+  ... 25,000/74,175  (219/s, 剩 3.7 min)
+  ... 26,000/74,175  (219/s, 剩 3.7 min)
+  ... 27,000/74,175  (219/s, 剩 3.6 min)
+  ... 28,000/74,175  (219/s, 剩 3.5 min)
+  ... 29,000/74,175  (220/s, 剩 3.4 min)
+  ... 30,000/74,175  (221/s, 剩 3.3 min)
+  ... 31,000/74,175  (220/s, 剩 3.3 min)
+  ... 32,000/74,175  (221/s, 剩 3.2 min)
+  ... 33,000/74,175  (221/s, 剩 3.1 min)
+  ... 34,000/74,175  (221/s, 剩 3.0 min)
+  ... 35,000/74,175  (221/s, 剩 3.0 min)
+  ... 36,000/74,175  (221/s, 剩 2.9 min)
+  ... 37,000/74,175  (222/s, 剩 2.8 min)
+  ... 38,000/74,175  (223/s, 剩 2.7 min)
+  ... 39,000/74,175  (223/s, 剩 2.6 min)
+  ... 40,000/74,175  (224/s, 剩 2.5 min)
+  ... 41,000/74,175  (224/s, 剩 2.5 min)
+  ... 42,000/74,175  (224/s, 剩 2.4 min)
+  ... 43,000/74,175  (225/s, 剩 2.3 min)
+  ... 44,000/74,175  (224/s, 剩 2.2 min)
+  ... 45,000/74,175  (225/s, 剩 2.2 min)
+  ... 46,000/74,175  (226/s, 剩 2.1 min)
+  ... 47,000/74,175  (226/s, 剩 2.0 min)
+  ... 48,000/74,175  (226/s, 剩 1.9 min)
+  ... 49,000/74,175  (227/s, 剩 1.9 min)
+  ... 50,000/74,175  (227/s, 剩 1.8 min)
+  ... 51,000/74,175  (227/s, 剩 1.7 min)
+  ... 52,000/74,175  (228/s, 剩 1.6 min)
+  ... 53,000/74,175  (229/s, 剩 1.5 min)
+  ... 54,000/74,175  (229/s, 剩 1.5 min)
+  ... 55,000/74,175  (230/s, 剩 1.4 min)
+  ... 56,000/74,175  (230/s, 剩 1.3 min)
+  ... 57,000/74,175  (231/s, 剩 1.2 min)
+  ... 58,000/74,175  (231/s, 剩 1.2 min)
+  ... 59,000/74,175  (231/s, 剩 1.1 min)
+  ... 60,000/74,175  (232/s, 剩 1.0 min)
+  ... 61,000/74,175  (232/s, 剩 0.9 min)
+  ... 62,000/74,175  (232/s, 剩 0.9 min)
+  ... 63,000/74,175  (232/s, 剩 0.8 min)
+  ... 64,000/74,175  (232/s, 剩 0.7 min)
+  ... 65,000/74,175  (233/s, 剩 0.7 min)
+  ... 66,000/74,175  (233/s, 剩 0.6 min)
+  ... 67,000/74,175  (233/s, 剩 0.5 min)
+  ... 68,000/74,175  (233/s, 剩 0.4 min)
+  ... 69,000/74,175  (233/s, 剩 0.4 min)
+  ... 70,000/74,175  (233/s, 剩 0.3 min)
+  ... 71,000/74,175  (233/s, 剩 0.2 min)
+  ... 72,000/74,175  (234/s, 剩 0.2 min)
+  ... 73,000/74,175  (234/s, 剩 0.1 min)
+  ... 74,015/74,175  (234/s, 剩 0.0 min)
+  ✓ 完成 shape=(74175,),正/中/负 = 25252/30676/18247
+
+=== [DeepSeek] 主题命名 (116 个,用 deepseek-v4-flash) ===
+  #0: AI平权与认知博弈
+  #1: 卡神粉丝技术崇拜圈
+  #2: Claude Code使用讨论
+  #3: getseed产品与网络黑话
+  #4: 飞书多维表格AI工作流
+  #5: 卡兹克AI实操分享
+  #6: Gemini与GPT对比实测
+  #7: 龙虾AI使用与吐槽集
+  #8: 大聪明酒吧整活集锦
+  #9: 提示词优化与使用心得
+  #10: 社群入群与交流讨论
+  #11: 智谱GLM用户评论热议
+  #12: 宝玉老师技能分享
+  #13: Kimi AI使用与功能讨论
+  #14: 读者盛赞花叔强大技能
+  #15: 即梦AI版本更新热议
+  #16: 腾讯元宝与微信AI生态热议
+  #17: 可灵Runway视频生成对决
+  #18: 鲜虾包评论区蹲守
+  #19: Prompt使用经验与技巧
+  #20: 真实而强烈的点赞热潮
+  #21: AI幻觉的多元探讨
+  #22: AI视频生成模型热议
+  #23: Vibe Coding实战与AI编程体验
+  #24: Anthropic：AI安全与竞争漩涡
+  #25: 秘塔AI工具使用心得
+  #26: 数字生命与记忆永恒
+  #27: AI翻译工具与实时翻译讨论
+  #28: Cursor AI编程工具使用讨论
+  #29: 赛博禅心读者梗合集
+  #30: Trae使用体验与排队
+  #31: MCP技术生态与争议
+  #32: 读者热议作者爆肝行为
+  #33: GLM-5能力与价格引热议
+  #34: 技术圈内卷进行时
+  #35: 国内AI第一SOTA霸主
+  #36: 杭州场报名咨询热
+  #37: 扣子AI平台体验与讨论
+  #38: 读者点赞感谢集锦
+  #39: OpenAI模型版本对比与困惑
+  #40: AI默认五指与六指困境
+  #41: Harness工程：约束与自动驾驶
+  #42: AI配图生成工具问答
+  #43: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #44: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #45: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #46: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #47: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #48: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #49: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #50: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #51: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #52: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #53: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #54: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #55: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #56: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #57: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #58: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #59: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #60: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #61: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #62: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #63: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #64: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #65: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #66: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #67: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #68: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #69: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #70: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #71: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #72: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #73: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #74: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #75: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #76: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #77: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #78: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #79: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #80: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #81: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #82: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #83: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #84: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #85: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #86: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #87: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #88: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #89: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #90: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #91: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #92: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #93: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #94: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #95: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #96: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #97: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #98: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #99: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #100: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #101: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #102: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #103: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #104: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #105: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #106: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #107: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #108: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #109: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #110: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #111: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #112: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #113: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #114: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+  #115: 命名失败 - Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+✓ D:\Dev\ai-wechat-pipeline\reports\comments_insights_v3.md

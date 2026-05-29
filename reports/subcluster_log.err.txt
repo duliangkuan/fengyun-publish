@@ -1,0 +1,24 @@
+2026-05-21 00:20:32,308 - BERTopic - Dimensionality - Fitting the dimensionality reduction algorithm
+2026-05-21 00:21:08,244 - BERTopic - Dimensionality - Completed \u2713
+2026-05-21 00:21:08,247 - BERTopic - Cluster - Start clustering the reduced embeddings
+2026-05-21 00:21:16,545 - BERTopic - Cluster - Completed \u2713
+2026-05-21 00:21:16,548 - BERTopic - Representation - Extracting topics using c-TF-IDF for topic reduction.
+Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\23303\AppData\Local\Temp\jieba.cache
+Loading model cost 0.777 seconds.
+Prefix dict has been built successfully.
+2026-05-21 00:21:18,451 - BERTopic - Representation - Completed \u2713
+2026-05-21 00:21:18,452 - BERTopic - Topic reduction - Reducing number of topics
+2026-05-21 00:21:18,721 - BERTopic - Representation - Fine-tuning topics using representation models.
+2026-05-21 00:21:19,744 - BERTopic - Representation - Completed \u2713
+2026-05-21 00:21:19,755 - BERTopic - Topic reduction - Reduced number of topics from 264 to 147
+2026-05-21 00:21:22,647 - BERTopic - Dimensionality - Fitting the dimensionality reduction algorithm
+2026-05-21 00:21:47,495 - BERTopic - Dimensionality - Completed \u2713
+2026-05-21 00:21:47,496 - BERTopic - Cluster - Start clustering the reduced embeddings
+2026-05-21 00:21:48,807 - BERTopic - Cluster - Completed \u2713
+2026-05-21 00:21:48,810 - BERTopic - Representation - Extracting topics using c-TF-IDF for topic reduction.
+2026-05-21 00:21:49,226 - BERTopic - Representation - Completed \u2713
+2026-05-21 00:21:49,229 - BERTopic - Topic reduction - Reducing number of topics
+2026-05-21 00:21:49,248 - BERTopic - Representation - Fine-tuning topics using representation models.
+2026-05-21 00:21:49,572 - BERTopic - Representation - Completed \u2713
+2026-05-21 00:21:49,576 - BERTopic - Topic reduction - Reduced number of topics from 46 to 40

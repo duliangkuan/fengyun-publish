@@ -1,0 +1,810 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1900">
+  <style>
+    text {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans SC', 'SF Pro SC', sans-serif;
+    }
+    .mono { font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace; }
+    .title { font-size: 22px; font-weight: 700; fill: #f1f5f9; }
+    .subtitle { font-size: 12px; fill: #94a3b8; }
+    .layer-label { font-size: 13px; font-weight: 700; fill: #e2e8f0; }
+    .layer-sublabel { font-size: 10px; fill: #94a3b8; }
+    .step-num { font-size: 10px; font-weight: 700; }
+    .step-name { font-size: 11px; font-weight: 600; fill: #f1f5f9; }
+    .step-desc { font-size: 9px; fill: #cbd5e1; }
+    .blocking { stroke: #ef4444; stroke-width: 2; }
+    .legend-text { font-size: 10px; fill: #cbd5e1; }
+  </style>
+
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/>
+    </marker>
+    <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Title block -->
+  <text x="40" y="38" class="title">风云 AI 公众号「研究 Agent 的云」系统架构</text>
+  <text x="40" y="58" class="subtitle">10 层架构 · 19 Step ship pipeline · gate.py 物理拦截 · Round 25(2026-05-25)</text>
+
+  <!-- ====================================================== -->
+  <!-- L0 北极星层 (banner across top, alert color)            -->
+  <!-- ====================================================== -->
+  <rect x="40" y="80" width="1700" height="48" rx="6" fill="#0f172a"/>
+  <rect x="40" y="80" width="1700" height="48" rx="6" fill="rgba(136,19,55,0.4)" stroke="#fb7185" stroke-width="2"/>
+  <text x="60" y="103" class="layer-label" fill="#fb7185">⭐ L0 · 北极星红线 (NORTH_STAR)</text>
+  <text x="60" y="120" class="step-desc" fill="#fecaca">最终人工动作只有一个 — 风云在公众号草稿箱审阅 + 手动发出。pipeline 内部一切「自动 ship」均不替代这条。</text>
+
+  <!-- ====================================================== -->
+  <!-- L1 信源层                                                -->
+  <!-- ====================================================== -->
+  <text x="50" y="158" class="layer-label">L1 · 信源层</text>
+  <text x="50" y="174" class="layer-sublabel">7 服务串联</text>
+  <text x="50" y="188" class="layer-sublabel">数据输入</text>
+
+  <!-- Region boundary L1 -->
+  <rect x="180" y="142" width="1560" height="120" rx="8" fill="none" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <!-- Row 1: Local Docker stack -->
+  <g>
+    <rect x="200" y="158" width="138" height="44" rx="6" fill="#0f172a"/>
+    <rect x="200" y="158" width="138" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="269" y="178" class="step-name" text-anchor="middle">Docker Desktop</text>
+    <text x="269" y="194" class="step-desc" text-anchor="middle">底层 runtime</text>
+  </g>
+  <g>
+    <rect x="350" y="158" width="160" height="44" rx="6" fill="#0f172a"/>
+    <rect x="350" y="158" width="160" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="430" y="178" class="step-name" text-anchor="middle">we-mp-rss 容器</text>
+    <text x="430" y="194" class="step-desc" text-anchor="middle">:8001 · 16 公众号 feed</text>
+  </g>
+  <g>
+    <rect x="522" y="158" width="160" height="44" rx="6" fill="#0f172a"/>
+    <rect x="522" y="158" width="160" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="602" y="178" class="step-name" text-anchor="middle">本机 RSSHub 容器</text>
+    <text x="602" y="194" class="step-desc" text-anchor="middle">:1200 · B 站/知乎</text>
+  </g>
+  <g>
+    <rect x="694" y="158" width="150" height="44" rx="6" fill="#0f172a"/>
+    <rect x="694" y="158" width="150" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="769" y="178" class="step-name" text-anchor="middle">TrendRadar</text>
+    <text x="769" y="194" class="step-desc" text-anchor="middle">17+7 护城河信源</text>
+  </g>
+  <g>
+    <rect x="856" y="158" width="130" height="44" rx="6" fill="#0f172a"/>
+    <rect x="856" y="158" width="130" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="921" y="178" class="step-name" text-anchor="middle">aihot API</text>
+    <text x="921" y="194" class="step-desc" text-anchor="middle">卡兹克开源</text>
+  </g>
+  <g>
+    <rect x="998" y="158" width="130" height="44" rx="6" fill="#0f172a"/>
+    <rect x="998" y="158" width="130" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="1063" y="178" class="step-name" text-anchor="middle">arxiv</text>
+    <text x="1063" y="194" class="step-desc" text-anchor="middle">论文源</text>
+  </g>
+  <g>
+    <rect x="1140" y="158" width="140" height="44" rx="6" fill="#0f172a"/>
+    <rect x="1140" y="158" width="140" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="1210" y="178" class="step-name" text-anchor="middle">smol.ai AINews</text>
+    <text x="1210" y="194" class="step-desc" text-anchor="middle">Karpathy 钦点</text>
+  </g>
+  <g>
+    <rect x="1292" y="158" width="130" height="44" rx="6" fill="#0f172a"/>
+    <rect x="1292" y="158" width="130" height="44" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.2"/>
+    <text x="1357" y="178" class="step-name" text-anchor="middle">WebSearch</text>
+    <text x="1357" y="194" class="step-desc" text-anchor="middle">主线程补位</text>
+  </g>
+  <g>
+    <rect x="1434" y="158" width="148" height="44" rx="6" fill="#0f172a"/>
+    <rect x="1434" y="158" width="148" height="44" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="1508" y="178" class="step-name" text-anchor="middle" fill="#94a3b8">HF Spaces RSSHub</text>
+    <text x="1508" y="194" class="step-desc" text-anchor="middle" fill="#94a3b8">已废 · 418</text>
+  </g>
+  <g>
+    <rect x="1594" y="158" width="140" height="44" rx="6" fill="#0f172a"/>
+    <rect x="1594" y="158" width="140" height="44" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="1664" y="178" class="step-name" text-anchor="middle" fill="#cbd5e1">Email-to-RSS</text>
+    <text x="1664" y="194" class="step-desc" text-anchor="middle" fill="#94a3b8">P1 · Substack</text>
+  </g>
+
+  <!-- Row 2: Cookie alert + corpus -->
+  <g>
+    <rect x="200" y="212" width="300" height="40" rx="6" fill="#0f172a"/>
+    <rect x="200" y="212" width="300" height="40" rx="6" fill="rgba(120,53,15,0.25)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="350" y="230" class="step-name" text-anchor="middle" fill="#fcd34d">🔑 浏览器 cookie</text>
+    <text x="350" y="244" class="step-desc" text-anchor="middle">80 小时刷新一次 · 失效 = we-mp-rss 拉空</text>
+  </g>
+  <g>
+    <rect x="520" y="212" width="240" height="40" rx="6" fill="#0f172a"/>
+    <rect x="520" y="212" width="240" height="40" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1"/>
+    <text x="640" y="230" class="step-name" text-anchor="middle">corpus/ 语料池</text>
+    <text x="640" y="244" class="step-desc" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace">kazik 175 + baoyu 52 + saibo 50</text>
+  </g>
+  <g>
+    <rect x="780" y="212" width="240" height="40" rx="6" fill="#0f172a"/>
+    <rect x="780" y="212" width="240" height="40" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1"/>
+    <text x="900" y="230" class="step-name" text-anchor="middle">voice-dna.md + growth/</text>
+    <text x="900" y="244" class="step-desc" text-anchor="middle">风云 voice 底座 · Step 0 必读</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- L2 Preflight 自检层                                      -->
+  <!-- ====================================================== -->
+  <text x="50" y="296" class="layer-label">L2 · Preflight</text>
+  <text x="50" y="312" class="layer-sublabel">系统自检</text>
+  <text x="50" y="326" class="layer-sublabel">三层防护</text>
+
+  <rect x="180" y="280" width="1360" height="64" rx="8" fill="none" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+  <g>
+    <rect x="200" y="294" width="240" height="40" rx="6" fill="#0f172a"/>
+    <rect x="200" y="294" width="240" height="40" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="320" y="312" class="step-name" text-anchor="middle">tools/preflight.ps1</text>
+    <text x="320" y="326" class="step-desc" text-anchor="middle">7 项 P0 检查 · 退出码 1 = 禁入</text>
+  </g>
+  <g>
+    <rect x="460" y="294" width="200" height="40" rx="6" fill="#0f172a"/>
+    <rect x="460" y="294" width="200" height="40" rx="6" fill="rgba(120,53,15,0.2)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="560" y="312" class="step-name" text-anchor="middle">L1 lint 层</text>
+    <text x="560" y="326" class="step-desc" text-anchor="middle">退出码物理拦截</text>
+  </g>
+  <g>
+    <rect x="680" y="294" width="200" height="40" rx="6" fill="#0f172a"/>
+    <rect x="680" y="294" width="200" height="40" rx="6" fill="rgba(120,53,15,0.2)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="780" y="312" class="step-name" text-anchor="middle">L2 hook 层</text>
+    <text x="780" y="326" class="step-desc" text-anchor="middle">gate.py 二次复查</text>
+  </g>
+  <g>
+    <rect x="900" y="294" width="200" height="40" rx="6" fill="#0f172a"/>
+    <rect x="900" y="294" width="200" height="40" rx="6" fill="rgba(120,53,15,0.2)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="1000" y="312" class="step-name" text-anchor="middle">L3 人格层</text>
+    <text x="1000" y="326" class="step-desc" text-anchor="middle">Claude 必读宪法</text>
+  </g>
+  <text x="1130" y="320" class="step-desc">P0 全绿才允许进入 Step -1</text>
+
+  <!-- ====================================================== -->
+  <!-- L3 Harness 核心 (highlighted)                            -->
+  <!-- ====================================================== -->
+  <text x="50" y="378" class="layer-label" fill="#60a5fa">L3 · Harness</text>
+  <text x="50" y="394" class="layer-sublabel">核心编排</text>
+  <text x="50" y="408" class="layer-sublabel">主线程</text>
+
+  <rect x="180" y="362" width="1360" height="74" rx="10" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="10,4" opacity="0.7"/>
+  <g>
+    <rect x="200" y="376" width="280" height="48" rx="8" fill="#0f172a"/>
+    <rect x="200" y="376" width="280" height="48" rx="8" fill="rgba(59,130,246,0.35)" stroke="#60a5fa" stroke-width="2"/>
+    <text x="340" y="396" class="step-name" text-anchor="middle" fill="#dbeafe">Claude Agent SDK Python</text>
+    <text x="340" y="411" class="step-desc" text-anchor="middle">主线程 Claude · 不引入 CrewAI/LangGraph</text>
+  </g>
+  <g>
+    <rect x="500" y="376" width="240" height="48" rx="8" fill="#0f172a"/>
+    <rect x="500" y="376" width="240" height="48" rx="8" fill="rgba(59,130,246,0.35)" stroke="#60a5fa" stroke-width="2"/>
+    <text x="620" y="396" class="step-name" text-anchor="middle" fill="#dbeafe">fengyun-publish skill</text>
+    <text x="620" y="411" class="step-desc" text-anchor="middle">编排 19 Step ship pipeline</text>
+  </g>
+  <g>
+    <rect x="760" y="376" width="240" height="48" rx="8" fill="#0f172a"/>
+    <rect x="760" y="376" width="240" height="48" rx="8" fill="rgba(59,130,246,0.35)" stroke="#60a5fa" stroke-width="2"/>
+    <text x="880" y="396" class="step-name" text-anchor="middle" fill="#dbeafe">WRITE_AGENT.md</text>
+    <text x="880" y="411" class="step-desc" text-anchor="middle">系统宪法 v1.5 · 19 step 颗粒度</text>
+  </g>
+  <text x="1020" y="404" class="step-desc" fill="#94a3b8">↓ 主线程按 step 编号顺序执行,失败回 retry / abort ↓</text>
+
+  <!-- ====================================================== -->
+  <!-- L4 ITI 选题层 (Round 13 风云自创)                        -->
+  <!-- ====================================================== -->
+  <text x="50" y="476" class="layer-label" fill="#34d399">L4 · ITI 选题</text>
+  <text x="50" y="492" class="layer-sublabel">I-1 广搜 → T</text>
+  <text x="50" y="506" class="layer-sublabel">→ I-2 深搜</text>
+
+  <rect x="180" y="460" width="1360" height="100" rx="8" fill="none" stroke="#34d399" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <g>
+    <rect x="200" y="478" width="200" height="70" rx="6" fill="#0f172a"/>
+    <rect x="200" y="478" width="200" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="210" y="495" class="step-num" fill="#fbbf24">Step 1.0 · BLOCKING</text>
+    <text x="300" y="513" class="step-name" text-anchor="middle">iti_collect.py</text>
+    <text x="300" y="528" class="step-desc" text-anchor="middle">I-1 广搜 · 6 信源汇聚</text>
+    <text x="300" y="540" class="step-desc" text-anchor="middle">候选 ≥ 10</text>
+  </g>
+  <g>
+    <rect x="420" y="478" width="220" height="70" rx="6" fill="#0f172a"/>
+    <rect x="420" y="478" width="220" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="430" y="495" class="step-num" fill="#fbbf24">Step 1.x · BLOCKING</text>
+    <text x="530" y="513" class="step-name" text-anchor="middle">topic_recommender + event_dedup</text>
+    <text x="530" y="528" class="step-desc" text-anchor="middle">PHASE1 数据驱动评分</text>
+    <text x="530" y="540" class="step-desc" text-anchor="middle">7 天 Jaccard 去重</text>
+  </g>
+  <g>
+    <rect x="660" y="478" width="200" height="70" rx="6" fill="#0f172a"/>
+    <rect x="660" y="478" width="200" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+    <text x="670" y="495" class="step-num" fill="#94a3b8">Step 1.1 · 自动</text>
+    <text x="760" y="513" class="step-name" text-anchor="middle">auto_selected_topic</text>
+    <text x="760" y="528" class="step-desc" text-anchor="middle">取 ranked top 1</text>
+    <text x="760" y="540" class="step-desc" text-anchor="middle">提取 slug + entities</text>
+  </g>
+  <g>
+    <rect x="880" y="478" width="240" height="70" rx="6" fill="#0f172a"/>
+    <rect x="880" y="478" width="240" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="890" y="495" class="step-num" fill="#fbbf24">Step 2 · BLOCKING</text>
+    <text x="1000" y="513" class="step-name" text-anchor="middle">iti_explore.py</text>
+    <text x="1000" y="528" class="step-desc" text-anchor="middle">I-2 深搜 · 5 本地+API 源</text>
+    <text x="1000" y="540" class="step-desc" text-anchor="middle">→ research.md</text>
+  </g>
+
+  <!-- Data product: candidates.json -->
+  <g>
+    <rect x="1140" y="478" width="200" height="32" rx="4" fill="#0f172a"/>
+    <rect x="1140" y="478" width="200" height="32" rx="4" fill="rgba(76,29,149,0.35)" stroke="#a78bfa" stroke-width="1"/>
+    <text x="1240" y="498" class="step-desc" text-anchor="middle" fill="#ddd6fe">output/candidates/YYYYMMDD.json</text>
+  </g>
+  <g>
+    <rect x="1140" y="514" width="200" height="34" rx="4" fill="#0f172a"/>
+    <rect x="1140" y="514" width="200" height="34" rx="4" fill="rgba(76,29,149,0.35)" stroke="#a78bfa" stroke-width="1"/>
+    <text x="1240" y="528" class="step-desc" text-anchor="middle" fill="#ddd6fe">research.md</text>
+    <text x="1240" y="542" class="step-desc" text-anchor="middle">深搜调研产物</text>
+  </g>
+
+  <!-- ITI flow arrows -->
+  <path d="M 400 513 L 420 513" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 640 513 L 660 513" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 860 513 L 880 513" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 1120 513 L 1140 494" stroke="#a78bfa" stroke-width="1" fill="none" stroke-dasharray="3,2" marker-end="url(#arrow-violet)"/>
+  <path d="M 1120 525 L 1140 531" stroke="#a78bfa" stroke-width="1" fill="none" stroke-dasharray="3,2" marker-end="url(#arrow-violet)"/>
+
+  <!-- ====================================================== -->
+  <!-- L5 试稿 + 写作层                                          -->
+  <!-- ====================================================== -->
+  <text x="50" y="600" class="layer-label" fill="#34d399">L5 · 写作</text>
+  <text x="50" y="616" class="layer-sublabel">Step -1 ~ 3.5</text>
+  <text x="50" y="630" class="layer-sublabel">harness 循环</text>
+
+  <rect x="180" y="580" width="1360" height="180" rx="8" fill="none" stroke="#34d399" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <!-- Row 1: prep steps -->
+  <g>
+    <rect x="200" y="596" width="170" height="60" rx="6" fill="#0f172a"/>
+    <rect x="200" y="596" width="170" height="60" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="210" y="612" class="step-num" fill="#fbbf24">Step -1 · BLOCK</text>
+    <text x="285" y="630" class="step-name" text-anchor="middle">北极星填空</text>
+    <text x="285" y="645" class="step-desc" text-anchor="middle">≤30 字 · TBD 占位</text>
+  </g>
+  <g>
+    <rect x="390" y="596" width="170" height="60" rx="6" fill="#0f172a"/>
+    <rect x="390" y="596" width="170" height="60" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="400" y="612" class="step-num" fill="#fbbf24">Step 0 · BLOCK</text>
+    <text x="475" y="630" class="step-name" text-anchor="middle">Voice DNA + corpus</text>
+    <text x="475" y="645" class="step-desc" text-anchor="middle">读 3-5 篇范文</text>
+  </g>
+  <g>
+    <rect x="580" y="596" width="170" height="60" rx="6" fill="#0f172a"/>
+    <rect x="580" y="596" width="170" height="60" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+    <text x="590" y="612" class="step-num" fill="#94a3b8">Step 0.1</text>
+    <text x="665" y="630" class="step-name" text-anchor="middle">Style 路由</text>
+    <text x="665" y="645" class="step-desc" text-anchor="middle">默认 huashu T-A</text>
+  </g>
+  <g>
+    <rect x="770" y="596" width="280" height="60" rx="6" fill="#0f172a"/>
+    <rect x="770" y="596" width="280" height="60" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="780" y="612" class="step-num" fill="#fbbf24">Step 1.5 · BLOCK · ≤3 retry ↻</text>
+    <text x="910" y="630" class="step-name" text-anchor="middle">dogfood gate + opening harness</text>
+    <text x="910" y="645" class="step-desc" text-anchor="middle">opening_signal 5 维 + content-judge verdict</text>
+  </g>
+
+  <!-- Row 2: writing steps -->
+  <g>
+    <rect x="200" y="678" width="250" height="64" rx="6" fill="#0f172a"/>
+    <rect x="200" y="678" width="250" height="64" rx="6" fill="rgba(6,78,59,0.5)" stroke="#34d399" stroke-width="2" class="blocking"/>
+    <text x="210" y="694" class="step-num" fill="#fbbf24">Step 3 · BLOCKING ⭐</text>
+    <text x="325" y="713" class="step-name" text-anchor="middle">fengyun-writer 完整稿</text>
+    <text x="325" y="728" class="step-desc" text-anchor="middle">4000-5000 字</text>
+  </g>
+  <g>
+    <rect x="470" y="678" width="220" height="64" rx="6" fill="#0f172a"/>
+    <rect x="470" y="678" width="220" height="64" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="480" y="694" class="step-num" fill="#fbbf24">Step 3.3 · BLOCK · ≤3 ↻</text>
+    <text x="580" y="713" class="step-name" text-anchor="middle">标题 harness</text>
+    <text x="580" y="728" class="step-desc" text-anchor="middle">title_signal 评分</text>
+  </g>
+  <g>
+    <rect x="710" y="678" width="220" height="64" rx="6" fill="#0f172a"/>
+    <rect x="710" y="678" width="220" height="64" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5" class="blocking"/>
+    <text x="720" y="694" class="step-num" fill="#fbbf24">Step 3.5 · BLOCK · ≤3 ↻</text>
+    <text x="820" y="713" class="step-name" text-anchor="middle">ending harness</text>
+    <text x="820" y="728" class="step-desc" text-anchor="middle">ending_signal 评分</text>
+  </g>
+
+  <!-- Right side: writer skills annotation -->
+  <g>
+    <rect x="1080" y="596" width="240" height="146" rx="6" fill="#0f172a"/>
+    <rect x="1080" y="596" width="240" height="146" rx="6" fill="rgba(120,53,15,0.2)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="1200" y="614" class="step-name" text-anchor="middle" fill="#fcd34d">写作期调用的 skills</text>
+    <text x="1090" y="634" class="step-desc">• fengyun-writer (灵魂)</text>
+    <text x="1090" y="650" class="step-desc">• khazix-writer (备用)</text>
+    <text x="1090" y="666" class="step-desc">• content-judge (binary verdict)</text>
+    <text x="1090" y="682" class="step-desc">• aihot / hv-analysis</text>
+    <text x="1090" y="700" class="step-desc">harness 循环上限 ≤ 3 retry</text>
+    <text x="1090" y="716" class="step-desc">超限 → revise → 仍不过 abort</text>
+    <text x="1090" y="734" class="step-desc">所有产物写 runlog.jsonl</text>
+  </g>
+
+  <!-- harness loop arrows -->
+  <path d="M 1050 708 Q 1080 760 825 760 Q 580 760 580 745" stroke="#fb923c" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-orange)"/>
+  <text x="700" y="775" class="step-desc" fill="#fb923c">↻ retry loop (≤3 轮)</text>
+
+  <!-- Flow arrows L5 -->
+  <path d="M 370 626 L 390 626" stroke="#34d399" stroke-width="1" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 560 626 L 580 626" stroke="#34d399" stroke-width="1" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 750 626 L 770 626" stroke="#34d399" stroke-width="1" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 910 656 L 910 670 L 325 670 L 325 678" stroke="#34d399" stroke-width="1" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 450 710 L 470 710" stroke="#34d399" stroke-width="1" fill="none" marker-end="url(#arrow-emerald)"/>
+  <path d="M 690 710 L 710 710" stroke="#34d399" stroke-width="1" fill="none" marker-end="url(#arrow-emerald)"/>
+
+  <!-- ====================================================== -->
+  <!-- L6 清洁层                                                -->
+  <!-- ====================================================== -->
+  <text x="50" y="820" class="layer-label" fill="#fb923c">L6 · 清洁</text>
+  <text x="50" y="836" class="layer-sublabel">机械 lint</text>
+  <text x="50" y="850" class="layer-sublabel">+ 语感预审</text>
+
+  <rect x="180" y="800" width="1360" height="80" rx="8" fill="none" stroke="#fb923c" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <g>
+    <rect x="200" y="816" width="280" height="50" rx="6" fill="#0f172a"/>
+    <rect x="200" y="816" width="280" height="50" rx="6" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1.5" class="blocking"/>
+    <text x="210" y="832" class="step-num" fill="#fbbf24">Step 4 · BLOCKING</text>
+    <text x="340" y="850" class="step-name" text-anchor="middle">fengyun_lint.py 机械层</text>
+    <text x="340" y="865" class="step-desc" text-anchor="middle">R18 商业机密 + R26/R27 bold 密度</text>
+  </g>
+  <g>
+    <rect x="500" y="816" width="280" height="50" rx="6" fill="#0f172a"/>
+    <rect x="500" y="816" width="280" height="50" rx="6" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1.5" class="blocking"/>
+    <text x="510" y="832" class="step-num" fill="#fbbf24">Step 4.5 · BLOCKING</text>
+    <text x="640" y="850" class="step-name" text-anchor="middle">humanizer-zh skill</text>
+    <text x="640" y="865" class="step-desc" text-anchor="middle">去 AI 味 24 模式</text>
+  </g>
+  <g>
+    <rect x="800" y="816" width="320" height="50" rx="6" fill="#0f172a"/>
+    <rect x="800" y="816" width="320" height="50" rx="6" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1.5" class="blocking"/>
+    <text x="810" y="832" class="step-num" fill="#fbbf24">Step 5 · BLOCKING</text>
+    <text x="960" y="850" class="step-name" text-anchor="middle">wangxiaobo-perspective skill</text>
+    <text x="960" y="865" class="step-desc" text-anchor="middle">中文语感预审 · 翻译腔检测</text>
+  </g>
+
+  <path d="M 480 840 L 500 840" stroke="#fb923c" stroke-width="1" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M 780 840 L 800 840" stroke="#fb923c" stroke-width="1" fill="none" marker-end="url(#arrow-orange)"/>
+
+  <!-- ====================================================== -->
+  <!-- L7 评审层 (三轨 critic)                                  -->
+  <!-- ====================================================== -->
+  <text x="50" y="930" class="layer-label" fill="#a78bfa">L7 · 评审</text>
+  <text x="50" y="946" class="layer-sublabel">三轨 critic</text>
+  <text x="50" y="960" class="layer-sublabel">vote + revise</text>
+
+  <rect x="180" y="908" width="1360" height="190" rx="8" fill="none" stroke="#a78bfa" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <!-- Row 1: 3 critic tracks -->
+  <g>
+    <rect x="200" y="926" width="280" height="62" rx="6" fill="#0f172a"/>
+    <rect x="200" y="926" width="280" height="62" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="210" y="942" class="step-num" fill="#c4b5fd">Track A · 客观</text>
+    <text x="340" y="960" class="step-name" text-anchor="middle">sop_v2_1.py</text>
+    <text x="340" y="976" class="step-desc" text-anchor="middle">数据驱动打分 · A ≥ 65 阈值</text>
+  </g>
+  <g>
+    <rect x="500" y="926" width="280" height="62" rx="6" fill="#0f172a"/>
+    <rect x="500" y="926" width="280" height="62" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="510" y="942" class="step-num" fill="#c4b5fd">Track B · 灵魂</text>
+    <text x="640" y="960" class="step-name" text-anchor="middle">huashu-perspective skill</text>
+    <text x="640" y="976" class="step-desc" text-anchor="middle">花叔 5 心智模型 binary verdict</text>
+  </g>
+  <g>
+    <rect x="800" y="926" width="320" height="62" rx="6" fill="#0f172a"/>
+    <rect x="800" y="926" width="320" height="62" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="810" y="942" class="step-num" fill="#c4b5fd">Track C · 独立第三方</text>
+    <text x="960" y="960" class="step-name" text-anchor="middle">content-judge skill</text>
+    <text x="960" y="976" class="step-desc" text-anchor="middle">Round 24 fork · 5 个 decision_mode</text>
+  </g>
+
+  <!-- Row 2: vote -> revise loop -> auto exit -->
+  <g>
+    <rect x="200" y="1010" width="240" height="70" rx="6" fill="#0f172a"/>
+    <rect x="200" y="1010" width="240" height="70" rx="6" fill="rgba(76,29,149,0.45)" stroke="#a78bfa" stroke-width="2" class="blocking"/>
+    <text x="210" y="1026" class="step-num" fill="#fbbf24">Step 6 · BLOCKING</text>
+    <text x="320" y="1045" class="step-name" text-anchor="middle">critic_vote.py</text>
+    <text x="320" y="1060" class="step-desc" text-anchor="middle">门控树投票</text>
+    <text x="320" y="1074" class="step-desc" text-anchor="middle">A∧B∧C 任一 fail → revise</text>
+  </g>
+  <g>
+    <rect x="460" y="1010" width="240" height="70" rx="6" fill="#0f172a"/>
+    <rect x="460" y="1010" width="240" height="70" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="470" y="1026" class="step-num" fill="#fb923c">Step 6.5 · ↻ ≤3 轮</text>
+    <text x="580" y="1045" class="step-name" text-anchor="middle">critic-revise loop</text>
+    <text x="580" y="1060" class="step-desc" text-anchor="middle">主线程根据 critic 反馈改稿</text>
+    <text x="580" y="1074" class="step-desc" text-anchor="middle">改完回 critic_vote 再判</text>
+  </g>
+  <g>
+    <rect x="720" y="1010" width="420" height="70" rx="6" fill="#0f172a"/>
+    <rect x="720" y="1010" width="420" height="70" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="730" y="1026" class="step-num" fill="#fcd34d">Step 6.5.8 · 自动出口 (Round 24)</text>
+    <text x="930" y="1045" class="step-name" text-anchor="middle">3 轮未过 → 自动判定</text>
+    <text x="930" y="1060" class="step-desc" text-anchor="middle">A ≥ 65 → auto_partial_pass (ship)</text>
+    <text x="930" y="1075" class="step-desc" text-anchor="middle">A &lt; 65 → auto_abort (终止)</text>
+  </g>
+
+  <!-- arrows -->
+  <path d="M 480 988 L 320 1010" stroke="#a78bfa" stroke-width="1" fill="none" marker-end="url(#arrow-violet)"/>
+  <path d="M 440 1045 L 460 1045" stroke="#a78bfa" stroke-width="1" fill="none" marker-end="url(#arrow-violet)"/>
+  <path d="M 700 1045 L 720 1045" stroke="#a78bfa" stroke-width="1" fill="none" marker-end="url(#arrow-violet)"/>
+  <!-- revise back to step 6 -->
+  <path d="M 580 1080 Q 580 1100 320 1095 L 320 1080" stroke="#fb923c" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-orange)"/>
+
+  <!-- ====================================================== -->
+  <!-- L8 视觉层 (Round 25)                                     -->
+  <!-- ====================================================== -->
+  <text x="50" y="1140" class="layer-label" fill="#a78bfa">L8 · 视觉</text>
+  <text x="50" y="1156" class="layer-sublabel">Round 25</text>
+  <text x="50" y="1170" class="layer-sublabel">图强制必选</text>
+
+  <rect x="180" y="1120" width="1360" height="120" rx="8" fill="none" stroke="#a78bfa" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <g>
+    <rect x="200" y="1138" width="200" height="84" rx="6" fill="#0f172a"/>
+    <rect x="200" y="1138" width="200" height="84" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="210" y="1154" class="step-num" fill="#c4b5fd">Step 7.1</text>
+    <text x="300" y="1174" class="step-name" text-anchor="middle">illustrate_decider.py</text>
+    <text x="300" y="1190" class="step-desc" text-anchor="middle">函数预筛</text>
+    <text x="300" y="1204" class="step-desc" text-anchor="middle">候选 H2 位置</text>
+  </g>
+  <g>
+    <rect x="420" y="1138" width="240" height="84" rx="6" fill="#0f172a"/>
+    <rect x="420" y="1138" width="240" height="84" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5" class="blocking"/>
+    <text x="430" y="1154" class="step-num" fill="#fbbf24">Step 7.2 · BLOCKING</text>
+    <text x="540" y="1174" class="step-name" text-anchor="middle">huashu-image-curator</text>
+    <text x="540" y="1190" class="step-desc" text-anchor="middle">Mode 2 · 必返回 count ≥ 1</text>
+    <text x="540" y="1204" class="step-desc" text-anchor="middle">读 style_anchor</text>
+  </g>
+  <g>
+    <rect x="680" y="1138" width="280" height="84" rx="6" fill="#0f172a"/>
+    <rect x="680" y="1138" width="280" height="84" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5" class="blocking"/>
+    <text x="690" y="1154" class="step-num" fill="#fbbf24">Step 7.3 · BLOCKING ⭐ Round 25</text>
+    <text x="820" y="1174" class="step-name" text-anchor="middle">Seedream 内文图生成</text>
+    <text x="820" y="1190" class="step-desc" text-anchor="middle">retry × 3 指数退避 (1s/2s/4s)</text>
+    <text x="820" y="1204" class="step-desc" text-anchor="middle">→ placeholder-sketch.png fallback</text>
+  </g>
+  <g>
+    <rect x="980" y="1138" width="260" height="84" rx="6" fill="#0f172a"/>
+    <rect x="980" y="1138" width="260" height="84" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5" class="blocking"/>
+    <text x="990" y="1154" class="step-num" fill="#fbbf24">Step 7-cover · BLOCKING</text>
+    <text x="1110" y="1174" class="step-name" text-anchor="middle">封面生成 + cover_dedup</text>
+    <text x="1110" y="1190" class="step-desc" text-anchor="middle">generate_cover_by_template</text>
+    <text x="1110" y="1204" class="step-desc" text-anchor="middle">→ &lt;slug&gt;-cover.style_anchor.txt</text>
+  </g>
+
+  <!-- style_anchor sidecar arrow (cover → curator) -->
+  <path d="M 980 1170 Q 670 1100 540 1138" stroke="#fbbf24" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="700" y="1110" class="step-desc" fill="#fbbf24">style_anchor sidecar (封面 → 内文图风格统一)</text>
+
+  <path d="M 400 1180 L 420 1180" stroke="#a78bfa" stroke-width="1" fill="none" marker-end="url(#arrow-violet)"/>
+  <path d="M 660 1180 L 680 1180" stroke="#a78bfa" stroke-width="1" fill="none" marker-end="url(#arrow-violet)"/>
+
+  <!-- ====================================================== -->
+  <!-- L9 出版层                                                -->
+  <!-- ====================================================== -->
+  <text x="50" y="1280" class="layer-label" fill="#60a5fa">L9 · 出版</text>
+  <text x="50" y="1296" class="layer-sublabel">渲染 + 推送</text>
+  <text x="50" y="1310" class="layer-sublabel">→ 草稿箱</text>
+
+  <rect x="180" y="1262" width="1360" height="110" rx="8" fill="none" stroke="#60a5fa" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <g>
+    <rect x="200" y="1280" width="260" height="74" rx="6" fill="#0f172a"/>
+    <rect x="200" y="1280" width="260" height="74" rx="6" fill="rgba(59,130,246,0.35)" stroke="#60a5fa" stroke-width="1.5" class="blocking"/>
+    <text x="210" y="1296" class="step-num" fill="#fbbf24">Step 8 · BLOCKING · gate 守门</text>
+    <text x="330" y="1316" class="step-name" text-anchor="middle">layout_rules.py 渲染</text>
+    <text x="330" y="1331" class="step-desc" text-anchor="middle">huashu T-A 唯一活跃</text>
+    <text x="330" y="1345" class="step-desc" text-anchor="middle">HTML ≤ 60000</text>
+  </g>
+  <g>
+    <rect x="480" y="1280" width="220" height="74" rx="6" fill="#0f172a"/>
+    <rect x="480" y="1280" width="220" height="74" rx="6" fill="rgba(59,130,246,0.35)" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="490" y="1296" class="step-num" fill="#c4b5fd">post_fengyun_publish.py</text>
+    <text x="590" y="1316" class="step-name" text-anchor="middle">推草稿</text>
+    <text x="590" y="1331" class="step-desc" text-anchor="middle">cache 图片素材</text>
+    <text x="590" y="1345" class="step-desc" text-anchor="middle">提交 add_draft API</text>
+  </g>
+  <g>
+    <rect x="720" y="1280" width="220" height="74" rx="6" fill="#0f172a"/>
+    <rect x="720" y="1280" width="220" height="74" rx="6" fill="rgba(120,53,15,0.35)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="730" y="1296" class="step-num" fill="#fcd34d">反向代理 (自建)</text>
+    <text x="830" y="1316" class="step-name" text-anchor="middle">mp-proxy-worker</text>
+    <text x="830" y="1331" class="step-desc" text-anchor="middle">Cloudflare Worker</text>
+    <text x="830" y="1345" class="step-desc" text-anchor="middle">dufengyun12.workers.dev</text>
+  </g>
+  <g>
+    <rect x="960" y="1280" width="180" height="74" rx="6" fill="#0f172a"/>
+    <rect x="960" y="1280" width="180" height="74" rx="6" fill="rgba(136,19,55,0.4)" stroke="#fb7185" stroke-width="2"/>
+    <text x="970" y="1296" class="step-num" fill="#fecaca">⭐ 终点</text>
+    <text x="1050" y="1316" class="step-name" text-anchor="middle" fill="#fecaca">公众号草稿箱</text>
+    <text x="1050" y="1331" class="step-desc" text-anchor="middle">风云手动审阅</text>
+    <text x="1050" y="1345" class="step-desc" text-anchor="middle">手动发出</text>
+  </g>
+  <g>
+    <rect x="1160" y="1280" width="180" height="74" rx="6" fill="#0f172a"/>
+    <rect x="1160" y="1280" width="180" height="74" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1"/>
+    <text x="1170" y="1296" class="step-num" fill="#94a3b8">Step 9</text>
+    <text x="1250" y="1316" class="step-name" text-anchor="middle">报告 + audit log</text>
+    <text x="1250" y="1331" class="step-desc" text-anchor="middle">汇总本次 ship</text>
+    <text x="1250" y="1345" class="step-desc" text-anchor="middle">下次复盘依据</text>
+  </g>
+
+  <path d="M 460 1316 L 480 1316" stroke="#60a5fa" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M 700 1316 L 720 1316" stroke="#60a5fa" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M 940 1316 L 960 1316" stroke="#fb7185" stroke-width="2" fill="none" marker-end="url(#arrow-rose)"/>
+  <path d="M 1140 1316 L 1160 1316" stroke="#94a3b8" stroke-width="1" fill="none" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- L10 数据反馈层                                           -->
+  <!-- ====================================================== -->
+  <text x="50" y="1408" class="layer-label" fill="#94a3b8">L10 · 数据反馈</text>
+  <text x="50" y="1424" class="layer-sublabel">持续回流</text>
+  <text x="50" y="1438" class="layer-sublabel">飞轮</text>
+
+  <rect x="180" y="1392" width="1360" height="80" rx="8" fill="none" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <g>
+    <rect x="200" y="1408" width="240" height="50" rx="6" fill="#0f172a"/>
+    <rect x="200" y="1408" width="240" height="50" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1"/>
+    <text x="320" y="1428" class="step-name" text-anchor="middle">runlog.jsonl</text>
+    <text x="320" y="1442" class="step-desc" text-anchor="middle">每步状态机日志 (output/runs/)</text>
+  </g>
+  <g>
+    <rect x="460" y="1408" width="220" height="50" rx="6" fill="#0f172a"/>
+    <rect x="460" y="1408" width="220" height="50" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1"/>
+    <text x="570" y="1428" class="step-name" text-anchor="middle">output/drafts/*.md</text>
+    <text x="570" y="1442" class="step-desc" text-anchor="middle">草稿存档</text>
+  </g>
+  <g>
+    <rect x="700" y="1408" width="280" height="50" rx="6" fill="#0f172a"/>
+    <rect x="700" y="1408" width="280" height="50" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1"/>
+    <text x="840" y="1428" class="step-name" text-anchor="middle">runs/*.json (含 media_id)</text>
+    <text x="840" y="1442" class="step-desc" text-anchor="middle">已发存档 → event_dedup 回流</text>
+  </g>
+  <g>
+    <rect x="1000" y="1408" width="320" height="50" rx="6" fill="#0f172a"/>
+    <rect x="1000" y="1408" width="320" height="50" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1"/>
+    <text x="1160" y="1428" class="step-name" text-anchor="middle">PHASE1_FACTS + topic_hotness.parquet</text>
+    <text x="1160" y="1442" class="step-desc" text-anchor="middle">2730 篇 · 80k 评论 · 3000-8000 字甜蜜点</text>
+  </g>
+
+  <!-- back-arrow: L10 → L4 (feedback flywheel) -->
+  <path d="M 840 1408 Q 840 1380 530 540" stroke="#fbbf24" stroke-width="0.8" fill="none" stroke-dasharray="3,2" opacity="0.6" marker-end="url(#arrow)"/>
+  <text x="850" y="1380" class="step-desc" fill="#fbbf24" opacity="0.8">飞轮回流: event_dedup 扫已发存档</text>
+
+  <!-- ====================================================== -->
+  <!-- 右侧 sidebar: gate.py PreToolUse hook (cross-cutting)    -->
+  <!-- ====================================================== -->
+  <rect x="1560" y="142" width="320" height="1316" rx="10" fill="rgba(136,19,55,0.2)" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="1720" y="170" class="layer-label" fill="#fb7185" text-anchor="middle">🔒 横切关注点</text>
+  <text x="1720" y="188" class="step-name" text-anchor="middle" fill="#fecaca">tools/gate.py</text>
+  <text x="1720" y="204" class="step-desc" text-anchor="middle" fill="#fecaca">PreToolUse hook · 物理拦截器</text>
+
+  <g>
+    <rect x="1580" y="220" width="280" height="68" rx="6" fill="#0f172a"/>
+    <rect x="1580" y="220" width="280" height="68" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.2"/>
+    <text x="1720" y="238" class="step-name" text-anchor="middle" fill="#fecaca">8 项 fake-pass 防伪</text>
+    <text x="1590" y="256" class="step-desc">• writer / humanizer / wangxiaobo</text>
+    <text x="1590" y="270" class="step-desc">• huashu_image_curator</text>
+    <text x="1590" y="284" class="step-desc">• 三轨 critic (real_run + source 字段)</text>
+  </g>
+
+  <g>
+    <rect x="1580" y="304" width="280" height="60" rx="6" fill="#0f172a"/>
+    <rect x="1580" y="304" width="280" height="60" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.2"/>
+    <text x="1720" y="322" class="step-name" text-anchor="middle" fill="#fecaca">11 个 pass_flag 校验</text>
+    <text x="1720" y="340" class="step-desc" text-anchor="middle">north_star / voice_dna_loaded</text>
+    <text x="1720" y="354" class="step-desc" text-anchor="middle">auto_selected_topic / style_routed / ...</text>
+  </g>
+
+  <g>
+    <rect x="1580" y="380" width="280" height="64" rx="6" fill="#0f172a"/>
+    <rect x="1580" y="380" width="280" height="64" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.2"/>
+    <text x="1720" y="398" class="step-name" text-anchor="middle" fill="#fecaca">image_paths 强制非空</text>
+    <text x="1720" y="416" class="step-desc" text-anchor="middle">每张 size ≥ 5 KB · Round 25</text>
+    <text x="1720" y="432" class="step-desc" text-anchor="middle">0 图 ship 路径已物理删除</text>
+  </g>
+
+  <g>
+    <rect x="1580" y="460" width="280" height="56" rx="6" fill="#0f172a"/>
+    <rect x="1580" y="460" width="280" height="56" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.2"/>
+    <text x="1720" y="478" class="step-name" text-anchor="middle" fill="#fecaca">HTML 上限 60000</text>
+    <text x="1720" y="496" class="step-desc" text-anchor="middle">对齐微信真实物理上限 65000</text>
+    <text x="1720" y="510" class="step-desc" text-anchor="middle">R12b html_size_warn</text>
+  </g>
+
+  <g>
+    <rect x="1580" y="532" width="280" height="74" rx="6" fill="#0f172a"/>
+    <rect x="1580" y="532" width="280" height="74" rx="6" fill="rgba(136,19,55,0.4)" stroke="#fb7185" stroke-width="1.5"/>
+    <text x="1720" y="550" class="step-name" text-anchor="middle" fill="#fecaca">R18 三级商业机密防御</text>
+    <text x="1590" y="568" class="step-desc">P0 致命 — 立即 abort 无兜底</text>
+    <text x="1590" y="582" class="step-desc">P1 严重 — abort 可手动覆盖</text>
+    <text x="1590" y="596" class="step-desc">P2 警告 — 提示但允许 ship</text>
+  </g>
+
+  <!-- gate decision tree visual -->
+  <g>
+    <rect x="1580" y="622" width="280" height="180" rx="6" fill="#0f172a"/>
+    <rect x="1580" y="622" width="280" height="180" rx="6" fill="rgba(30,41,59,0.5)" stroke="#fb7185" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="1720" y="640" class="step-name" text-anchor="middle" fill="#fecaca">每次推草稿前 hook 流程</text>
+    <text x="1590" y="660" class="step-desc">① 读 frontmatter pass_flag</text>
+    <text x="1590" y="674" class="step-desc">② 校验 11 个必填字段</text>
+    <text x="1590" y="688" class="step-desc">③ 8 项 real_run + source 验真</text>
+    <text x="1590" y="702" class="step-desc">④ image_paths 文件存在 + size</text>
+    <text x="1590" y="716" class="step-desc">⑤ HTML 字数检查</text>
+    <text x="1590" y="730" class="step-desc">⑥ R18 关键词扫描</text>
+    <text x="1590" y="750" class="step-desc" fill="#fb7185">任一 fail → 阻止 Bash/Write 工具调用</text>
+    <text x="1590" y="766" class="step-desc" fill="#fb7185">退出码 1 + 详细 reason</text>
+    <text x="1590" y="784" class="step-desc" fill="#94a3b8">主线程 Claude 自己看 stderr 决定 fix 或 retry</text>
+  </g>
+
+  <!-- gate intercept arrows pointing at writing/critic/visual/publish layers -->
+  <path d="M 1560 660 L 1140 700 L 1100 600" stroke="#fb7185" stroke-width="0.8" fill="none" stroke-dasharray="2,2" opacity="0.5"/>
+  <path d="M 1560 720 L 1140 1045" stroke="#fb7185" stroke-width="0.8" fill="none" stroke-dasharray="2,2" opacity="0.5"/>
+  <path d="M 1560 750 L 1240 1180" stroke="#fb7185" stroke-width="0.8" fill="none" stroke-dasharray="2,2" opacity="0.5"/>
+  <path d="M 1560 780 L 1140 1316" stroke="#fb7185" stroke-width="0.8" fill="none" stroke-dasharray="2,2" opacity="0.5"/>
+  <text x="1580" y="820" class="step-desc" fill="#fb7185" opacity="0.7">↖ 拦截层: 写作 / critic / 视觉 / 出版</text>
+
+  <!-- ====================================================== -->
+  <!-- 外部依赖 (底部 row)                                       -->
+  <!-- ====================================================== -->
+  <text x="50" y="1530" class="layer-label">外部依赖</text>
+  <text x="50" y="1546" class="layer-sublabel">External</text>
+  <text x="50" y="1560" class="layer-sublabel">APIs</text>
+
+  <rect x="180" y="1500" width="1360" height="90" rx="8" fill="none" stroke="#64748b" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <g>
+    <rect x="200" y="1516" width="300" height="60" rx="6" fill="#0f172a"/>
+    <rect x="200" y="1516" width="300" height="60" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="350" y="1536" class="step-name" text-anchor="middle">豆包 Seedream (火山 API)</text>
+    <text x="350" y="1554" class="step-desc" text-anchor="middle">封面 + 内文图生成</text>
+    <text x="350" y="1568" class="step-desc" text-anchor="middle">retry × 3 → placeholder 兜底</text>
+  </g>
+  <g>
+    <rect x="520" y="1516" width="280" height="60" rx="6" fill="#0f172a"/>
+    <rect x="520" y="1516" width="280" height="60" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="660" y="1536" class="step-name" text-anchor="middle">mp-proxy-worker</text>
+    <text x="660" y="1554" class="step-desc" text-anchor="middle">Cloudflare Worker 自建反代</text>
+    <text x="660" y="1568" class="step-desc" text-anchor="middle">dufengyun12.workers.dev</text>
+  </g>
+  <g>
+    <rect x="820" y="1516" width="280" height="60" rx="6" fill="#0f172a"/>
+    <rect x="820" y="1516" width="280" height="60" rx="6" fill="rgba(136,19,55,0.35)" stroke="#fb7185" stroke-width="1.5"/>
+    <text x="960" y="1536" class="step-name" text-anchor="middle">微信公众号官方 API</text>
+    <text x="960" y="1554" class="step-desc" text-anchor="middle">add_draft / upload_image</text>
+    <text x="960" y="1568" class="step-desc" text-anchor="middle">AppID wx3b564039c7a4560e</text>
+  </g>
+  <g>
+    <rect x="1120" y="1516" width="280" height="60" rx="6" fill="#0f172a"/>
+    <rect x="1120" y="1516" width="280" height="60" rx="6" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="1260" y="1536" class="step-name" text-anchor="middle">Anthropic Claude API</text>
+    <text x="1260" y="1554" class="step-desc" text-anchor="middle">主线程 + 所有 skill 模型调用</text>
+    <text x="1260" y="1568" class="step-desc" text-anchor="middle">Opus / Sonnet 分级</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- Legend (bottom)                                          -->
+  <!-- ====================================================== -->
+  <rect x="40" y="1620" width="1840" height="220" rx="8" fill="rgba(30,41,59,0.4)" stroke="#475569" stroke-width="1"/>
+  <text x="60" y="1648" class="layer-label">图例 · Legend</text>
+
+  <!-- Color legend -->
+  <text x="60" y="1680" class="legend-text" fill="#e2e8f0" font-weight="600">层颜色</text>
+  <g>
+    <rect x="60" y="1690" width="16" height="16" rx="3" fill="rgba(136,19,55,0.4)" stroke="#fb7185"/>
+    <text x="82" y="1703" class="legend-text">L0/L7 北极星/critic (rose) · 红线 + 灵魂判断</text>
+  </g>
+  <g>
+    <rect x="60" y="1714" width="16" height="16" rx="3" fill="rgba(8,51,68,0.4)" stroke="#22d3ee"/>
+    <text x="82" y="1727" class="legend-text">L1 信源层 (cyan) · 数据输入</text>
+  </g>
+  <g>
+    <rect x="60" y="1738" width="16" height="16" rx="3" fill="rgba(120,53,15,0.3)" stroke="#fbbf24"/>
+    <text x="82" y="1751" class="legend-text">L2 Preflight (amber) · 自检守门</text>
+  </g>
+  <g>
+    <rect x="60" y="1762" width="16" height="16" rx="3" fill="rgba(59,130,246,0.3)" stroke="#60a5fa"/>
+    <text x="82" y="1775" class="legend-text">L3/L9 Harness/出版 (blue) · 核心 + 终点</text>
+  </g>
+  <g>
+    <rect x="60" y="1786" width="16" height="16" rx="3" fill="rgba(6,78,59,0.4)" stroke="#34d399"/>
+    <text x="82" y="1799" class="legend-text">L4/L5 选题/写作 (emerald) · 内容生产</text>
+  </g>
+  <g>
+    <rect x="60" y="1810" width="16" height="16" rx="3" fill="rgba(251,146,60,0.3)" stroke="#fb923c"/>
+    <text x="82" y="1823" class="legend-text">L6 清洁 (orange) · lint + 语感</text>
+  </g>
+
+  <!-- Status legend -->
+  <text x="500" y="1680" class="legend-text" fill="#e2e8f0" font-weight="600">状态标识</text>
+  <g>
+    <rect x="500" y="1690" width="120" height="22" rx="4" fill="rgba(6,78,59,0.4)" stroke="#ef4444" stroke-width="2"/>
+    <text x="560" y="1704" class="legend-text" text-anchor="middle">BLOCKING</text>
+  </g>
+  <text x="635" y="1704" class="legend-text">红框 = BLOCKING step,失败必 abort 或 retry</text>
+
+  <g>
+    <text x="500" y="1735" class="legend-text" fill="#fb923c">↻ ≤3 retry</text>
+    <text x="600" y="1735" class="legend-text">harness 循环 — 写→评→反馈→重写,上限 3 轮</text>
+  </g>
+
+  <g>
+    <text x="500" y="1758" class="legend-text" fill="#fbbf24">⭐</text>
+    <text x="520" y="1758" class="legend-text">关键节点 · 最重要的核心 step</text>
+  </g>
+
+  <g>
+    <rect x="500" y="1770" width="120" height="22" rx="4" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-dasharray="3,3"/>
+    <text x="560" y="1784" class="legend-text" text-anchor="middle">已废 / P1 可选</text>
+  </g>
+  <text x="635" y="1784" class="legend-text">虚线灰框 = 已废弃或低优先级</text>
+
+  <!-- Arrows legend -->
+  <text x="950" y="1680" class="legend-text" fill="#e2e8f0" font-weight="600">箭头含义</text>
+  <g>
+    <line x1="950" y1="1700" x2="1010" y2="1700" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+    <text x="1020" y="1704" class="legend-text">step 顺序流</text>
+  </g>
+  <g>
+    <line x1="950" y1="1722" x2="1010" y2="1722" stroke="#fb923c" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow-orange)"/>
+    <text x="1020" y="1726" class="legend-text">retry / revise 循环</text>
+  </g>
+  <g>
+    <line x1="950" y1="1744" x2="1010" y2="1744" stroke="#a78bfa" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-violet)"/>
+    <text x="1020" y="1748" class="legend-text">数据产物流向</text>
+  </g>
+  <g>
+    <line x1="950" y1="1766" x2="1010" y2="1766" stroke="#fb7185" stroke-width="0.8" stroke-dasharray="2,2"/>
+    <text x="1020" y="1770" class="legend-text">gate.py 拦截虚线</text>
+  </g>
+  <g>
+    <line x1="950" y1="1788" x2="1010" y2="1788" stroke="#fbbf24" stroke-width="0.8" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+    <text x="1020" y="1792" class="legend-text">飞轮回流 (output → 评分依据)</text>
+  </g>
+
+  <!-- 19 Step 索引 -->
+  <text x="1350" y="1680" class="legend-text" fill="#e2e8f0" font-weight="600">19 Step 索引</text>
+  <text x="1350" y="1700" class="legend-text" font-family="JetBrains Mono, monospace">L5 前置: -1 / 0 / 0.1</text>
+  <text x="1350" y="1716" class="legend-text" font-family="JetBrains Mono, monospace">L4 选题: 1.0 / 1.x / 1.1 / 2</text>
+  <text x="1350" y="1732" class="legend-text" font-family="JetBrains Mono, monospace">L5 写作: 1.5 / 3 / 3.3 / 3.5</text>
+  <text x="1350" y="1748" class="legend-text" font-family="JetBrains Mono, monospace">L6 清洁: 4 / 4.5 / 5</text>
+  <text x="1350" y="1764" class="legend-text" font-family="JetBrains Mono, monospace">L7 评审: 6 / 6.5 / 6.5.8</text>
+  <text x="1350" y="1780" class="legend-text" font-family="JetBrains Mono, monospace">L8 视觉: 7.1 / 7.2 / 7.3 / 7-cover</text>
+  <text x="1350" y="1796" class="legend-text" font-family="JetBrains Mono, monospace">L9 出版: 8 / 9</text>
+  <text x="1350" y="1816" class="legend-text" fill="#fbbf24">合计 = 19 Step (含 -1 / 0 / 0.1 / 1.x / 7-cover)</text>
+
+  <!-- Footer -->
+  <text x="60" y="1875" class="step-desc" fill="#64748b">D:\Dev\ai-wechat-pipeline\ · 完整宪法见 WRITE_AGENT.md · Round 25 (2026-05-25) · 项目 IP: 公众号「研究 Agent 的云」</text>
+</svg>

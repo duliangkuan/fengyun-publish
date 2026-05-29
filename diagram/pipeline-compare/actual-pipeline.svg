@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1850">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=Noto+Sans+SC:wght@400;500;700&amp;display=swap');
+  text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+</style>
+<defs>
+  <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+  </pattern>
+  <marker id="arr-g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+  </marker>
+  <marker id="arr-r" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/>
+  </marker>
+  <marker id="arr-y" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24"/>
+  </marker>
+</defs>
+
+<rect width="100%" height="100%" fill="#0f172a"/>
+<rect width="100%" height="100%" fill="url(#grid2)"/>
+
+<!-- Title -->
+<text x="550" y="40" fill="#fb7185" font-size="18" font-weight="700" text-anchor="middle">fengyun-publish Pipeline — 实际执行（2026-05-26 真实跑通）</text>
+<text x="550" y="60" fill="#94a3b8" font-size="11" text-anchor="middle">偏差标记: 🔴=降级/失败 🟡=偏差但修复 🟢=符合预期 ⚪=正常</text>
+
+<!-- ==================== STEP 1: 选题 ==================== -->
+<rect x="30" y="80" width="1040" height="165" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="100" fill="#34d399" font-size="11" font-weight="600">Step 1 · 选题</text>
+
+<!-- I-1 with degradation -->
+<rect x="50" y="110" width="280" height="80" rx="6" fill="#0f172a"/>
+<rect x="50" y="110" width="280" height="80" rx="6" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="190" y="130" fill="white" font-size="11" font-weight="600" text-anchor="middle">ITI I-1 广搜 🔴</text>
+<text x="190" y="146" fill="#fb7185" font-size="9" text-anchor="middle">WebSearch 工具缺失</text>
+<text x="190" y="158" fill="#fb7185" font-size="9" text-anchor="middle">smol.ai SSL timeout</text>
+<text x="190" y="170" fill="#fb7185" font-size="9" text-anchor="middle">we-mp-rss 空(Docker 未启动)</text>
+<text x="190" y="182" fill="#94a3b8" font-size="9" text-anchor="middle">实际: 3/6 信源 → 110 条(够用)</text>
+
+<rect x="370" y="110" width="180" height="55" rx="6" fill="#0f172a"/>
+<rect x="370" y="110" width="180" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="460" y="132" fill="white" font-size="11" font-weight="600" text-anchor="middle">T 选题排序 🟢</text>
+<text x="460" y="148" fill="#94a3b8" font-size="9" text-anchor="middle">burst_rate=0.678</text>
+<text x="460" y="160" fill="#94a3b8" font-size="9" text-anchor="middle">用户选 #4 GPT-5.6</text>
+
+<rect x="590" y="110" width="160" height="55" rx="6" fill="#0f172a"/>
+<rect x="590" y="110" width="160" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="670" y="132" fill="white" font-size="11" font-weight="600" text-anchor="middle">事件去重 🟢</text>
+<text x="670" y="148" fill="#94a3b8" font-size="9" text-anchor="middle">similarity=0.333</text>
+
+<rect x="790" y="110" width="200" height="55" rx="6" fill="#0f172a"/>
+<rect x="790" y="110" width="200" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="890" y="132" fill="white" font-size="11" font-weight="600" text-anchor="middle">北极星 🟢</text>
+<text x="890" y="148" fill="#94a3b8" font-size="9" text-anchor="middle">150万 tokens 底层逻辑</text>
+
+<line x1="330" y1="137" x2="370" y2="137" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="550" y1="137" x2="590" y2="137" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="750" y1="137" x2="790" y2="137" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- Preflight warning -->
+<rect x="50" y="200" width="280" height="30" rx="4" fill="rgba(136,19,55,0.2)" stroke="#fb7185" stroke-width="0.8" stroke-dasharray="3,3"/>
+<text x="190" y="220" fill="#fb7185" font-size="8" text-anchor="middle">⚠ Preflight 红线未执行(P0 Docker 检查跳过)</text>
+
+<line x1="550" y1="245" x2="550" y2="270" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 1.5: Dogfood ==================== -->
+<rect x="30" y="270" width="1040" height="130" rx="12" fill="none" stroke="#22d3ee" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="290" fill="#22d3ee" font-size="11" font-weight="600">Step 1.5 · Dogfood Gate</text>
+
+<rect x="50" y="300" width="200" height="65" rx="6" fill="#0f172a"/>
+<rect x="50" y="300" width="200" height="65" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="150" y="322" fill="white" font-size="11" font-weight="600" text-anchor="middle">opening_loop 🟡</text>
+<text x="150" y="338" fill="#fbbf24" font-size="9" text-anchor="middle">3/3 反差感 reframe=0/10</text>
+<text x="150" y="350" fill="#94a3b8" font-size="9" text-anchor="middle">用最后一版继续</text>
+
+<rect x="290" y="300" width="220" height="65" rx="6" fill="#0f172a"/>
+<rect x="290" y="300" width="220" height="65" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="400" y="322" fill="white" font-size="11" font-weight="600" text-anchor="middle">opening_signal 🟡</text>
+<text x="400" y="338" fill="#fbbf24" font-size="9" text-anchor="middle">物理✅ 反差❌ 情绪✅ 信息✅</text>
+<text x="400" y="350" fill="#94a3b8" font-size="9" text-anchor="middle">去重✅ (Jaccard 0.024)</text>
+
+<rect x="550" y="300" width="200" height="65" rx="6" fill="#0f172a"/>
+<rect x="550" y="300" width="200" height="65" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="650" y="322" fill="white" font-size="11" font-weight="600" text-anchor="middle">D-1 dogfood 🟢</text>
+<text x="650" y="338" fill="#34d399" font-size="9" text-anchor="middle">confidence=0.9</text>
+<text x="650" y="350" fill="#94a3b8" font-size="9" text-anchor="middle">5/5 voice 分量全过</text>
+
+<rect x="790" y="300" width="160" height="65" rx="6" fill="#0f172a"/>
+<rect x="790" y="300" width="160" height="65" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="870" y="332" fill="#34d399" font-size="12" font-weight="700" text-anchor="middle">✓ 通过</text>
+<text x="870" y="350" fill="#94a3b8" font-size="9" text-anchor="middle">自动进 Step 2</text>
+
+<line x1="250" y1="332" x2="290" y2="332" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="510" y1="332" x2="550" y2="332" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="750" y1="332" x2="790" y2="332" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<line x1="550" y1="400" x2="550" y2="430" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 2: 调研 ==================== -->
+<rect x="30" y="430" width="1040" height="110" rx="12" fill="none" stroke="#a78bfa" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="450" fill="#a78bfa" font-size="11" font-weight="600">Step 2 · 深搜调研</text>
+
+<rect x="50" y="460" width="280" height="55" rx="6" fill="#0f172a"/>
+<rect x="50" y="460" width="280" height="55" rx="6" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="190" y="482" fill="white" font-size="11" font-weight="600" text-anchor="middle">WebSearch 🔴 不可用</text>
+<text x="190" y="498" fill="#fb7185" font-size="9" text-anchor="middle">环境工具缺失 · 4 次全跳过</text>
+
+<rect x="370" y="460" width="220" height="55" rx="6" fill="#0f172a"/>
+<rect x="370" y="460" width="220" height="55" rx="6" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="480" y="482" fill="white" font-size="11" font-weight="600" text-anchor="middle">WebFetch 🔴 403/402</text>
+<text x="480" y="498" fill="#fb7185" font-size="9" text-anchor="middle">IT之家403 X.com402</text>
+
+<rect x="630" y="460" width="220" height="55" rx="6" fill="#0f172a"/>
+<rect x="630" y="460" width="220" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="740" y="482" fill="white" font-size="11" font-weight="600" text-anchor="middle">Anthropic 官网 🟢</text>
+<text x="740" y="498" fill="#94a3b8" font-size="9" text-anchor="middle">WebFetch 成功 · Olah 讲话</text>
+
+<rect x="890" y="460" width="150" height="55" rx="6" fill="#0f172a"/>
+<rect x="890" y="460" width="150" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="965" y="482" fill="white" font-size="11" font-weight="600" text-anchor="middle">10 条事实 🟢</text>
+<text x="965" y="498" fill="#94a3b8" font-size="9" text-anchor="middle">research.md</text>
+
+<line x1="330" y1="487" x2="370" y2="487" stroke="#fb7185" stroke-width="1" marker-end="url(#arr-r)"/>
+<line x1="590" y1="487" x2="630" y2="487" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="850" y1="487" x2="890" y2="487" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<line x1="550" y1="540" x2="550" y2="570" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 3: 写作 ==================== -->
+<rect x="30" y="570" width="1040" height="130" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="590" fill="#34d399" font-size="11" font-weight="600">Step 3 · 写初稿 + Harness</text>
+
+<rect x="50" y="600" width="300" height="75" rx="6" fill="#0f172a"/>
+<rect x="50" y="600" width="300" height="75" rx="6" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="200" y="620" fill="white" font-size="11" font-weight="600" text-anchor="middle">fengyun-writer 初稿 🟡</text>
+<text x="200" y="636" fill="#fbbf24" font-size="9" text-anchor="middle">首稿 3344 字(差 16%)</text>
+<text x="200" y="648" fill="#fbbf24" font-size="9" text-anchor="middle">3 轮扩写 → 4014 字</text>
+<text x="200" y="662" fill="#94a3b8" font-size="9" text-anchor="middle">最终 4951 字(含标点)</text>
+
+<rect x="400" y="600" width="250" height="55" rx="6" fill="#0f172a"/>
+<rect x="400" y="600" width="250" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="525" y="622" fill="white" font-size="11" font-weight="600" text-anchor="middle">标题 Harness 🟢</text>
+<text x="525" y="638" fill="#34d399" font-size="9" text-anchor="middle">一次通过 score=92.5</text>
+<text x="525" y="650" fill="#94a3b8" font-size="9" text-anchor="middle">hook=思维比喻 Jaccard=0.019</text>
+
+<rect x="700" y="600" width="250" height="55" rx="6" fill="#0f172a"/>
+<rect x="700" y="600" width="250" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="825" y="622" fill="white" font-size="11" font-weight="600" text-anchor="middle">结尾 Harness 🟢</text>
+<text x="825" y="638" fill="#34d399" font-size="9" text-anchor="middle">一次通过 金句10/摘要8/召唤10</text>
+
+<line x1="350" y1="627" x2="400" y2="627" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="650" y1="627" x2="700" y2="627" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<line x1="550" y1="700" x2="550" y2="730" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 4-5: 质量门控 ==================== -->
+<rect x="30" y="730" width="1040" height="130" rx="12" fill="none" stroke="#fbbf24" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="750" fill="#fbbf24" font-size="11" font-weight="600">Step 4-5 · 质量门控</text>
+
+<rect x="50" y="760" width="300" height="75" rx="6" fill="#0f172a"/>
+<rect x="50" y="760" width="300" height="75" rx="6" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="200" y="780" fill="white" font-size="11" font-weight="600" text-anchor="middle">fengyun_lint 🟡 6 轮修复</text>
+<text x="200" y="796" fill="#fbbf24" font-size="9" text-anchor="middle">14 → 2 violations (R13+R20)</text>
+<text x="200" y="808" fill="#fbbf24" font-size="9" text-anchor="middle">R0: 65处标点 R21: 6个H2重写</text>
+<text x="200" y="820" fill="#94a3b8" font-size="9" text-anchor="middle">R13 焦虑点检测算法限制</text>
+
+<rect x="400" y="760" width="250" height="55" rx="6" fill="#0f172a"/>
+<rect x="400" y="760" width="250" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="525" y="782" fill="white" font-size="11" font-weight="600" text-anchor="middle">humanizer-zh 🟢</text>
+<text x="525" y="798" fill="#34d399" font-size="9" text-anchor="middle">5 处 AI 模式修复</text>
+<text x="525" y="810" fill="#94a3b8" font-size="9" text-anchor="middle">否定式排比/膨胀象征/过度限定</text>
+
+<rect x="700" y="760" width="250" height="55" rx="6" fill="#0f172a"/>
+<rect x="700" y="760" width="250" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="825" y="782" fill="white" font-size="11" font-weight="600" text-anchor="middle">王小波 🟢</text>
+<text x="825" y="798" fill="#34d399" font-size="9" text-anchor="middle">6 处翻译腔全部修复</text>
+<text x="825" y="810" fill="#94a3b8" font-size="9" text-anchor="middle">信任的建立→建立信任</text>
+
+<line x1="350" y1="787" x2="400" y2="787" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr-y)"/>
+<line x1="650" y1="787" x2="700" y2="787" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<line x1="550" y1="860" x2="550" y2="890" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 6: 投票 ==================== -->
+<rect x="30" y="890" width="1040" height="120" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="910" fill="#34d399" font-size="11" font-weight="600">Step 6 · 三轨 Critic Vote — 全票通过 ✓</text>
+
+<rect x="50" y="920" width="280" height="55" rx="6" fill="#0f172a"/>
+<rect x="50" y="920" width="280" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="190" y="942" fill="white" font-size="11" font-weight="600" text-anchor="middle">Track A 🟢 total=65.5</text>
+<text x="190" y="958" fill="#94a3b8" font-size="9" text-anchor="middle">read=64 share=72 like=74</text>
+
+<rect x="380" y="920" width="250" height="55" rx="6" fill="#0f172a"/>
+<rect x="380" y="920" width="250" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="505" y="942" fill="white" font-size="11" font-weight="600" text-anchor="middle">Track B 🟢 ship</text>
+<text x="505" y="958" fill="#94a3b8" font-size="9" text-anchor="middle">边缘偏弱 · lived_stake 偏弱</text>
+
+<rect x="680" y="920" width="280" height="55" rx="6" fill="#0f172a"/>
+<rect x="680" y="920" width="280" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="820" y="942" fill="white" font-size="11" font-weight="600" text-anchor="middle">Track C 🟢 挂名 yes</text>
+<text x="820" y="958" fill="#94a3b8" font-size="9" text-anchor="middle">confidence=0.9</text>
+
+<rect x="300" y="985" width="400" height="20" rx="4" fill="rgba(6,78,59,0.3)" stroke="#34d399" stroke-width="1"/>
+<text x="500" y="999" fill="#34d399" font-size="10" font-weight="600" text-anchor="middle">gate_tree: A≥60 + B ship + C ship → ✓ SHIP (无 revise 循环)</text>
+
+<line x1="330" y1="947" x2="380" y2="947" stroke="#34d399" stroke-width="1.2"/>
+<line x1="630" y1="947" x2="680" y2="947" stroke="#34d399" stroke-width="1.2"/>
+
+<line x1="550" y1="1010" x2="550" y2="1040" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 7: 视觉 ==================== -->
+<rect x="30" y="1040" width="1040" height="120" rx="12" fill="none" stroke="#a78bfa" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="1060" fill="#a78bfa" font-size="11" font-weight="600">Step 7 · 视觉</text>
+
+<rect x="50" y="1070" width="300" height="65" rx="6" fill="#0f172a"/>
+<rect x="50" y="1070" width="300" height="65" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="200" y="1092" fill="white" font-size="11" font-weight="600" text-anchor="middle">封面 T3_compare 🟢</text>
+<text x="200" y="1108" fill="#94a3b8" font-size="9" text-anchor="middle">dedup 自动换 T4→T3</text>
+<text x="200" y="1120" fill="#94a3b8" font-size="9" text-anchor="middle">2 张候选 · 611KB</text>
+
+<rect x="400" y="1070" width="280" height="65" rx="6" fill="#0f172a"/>
+<rect x="400" y="1070" width="280" height="65" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="540" y="1092" fill="white" font-size="11" font-weight="600" text-anchor="middle">内文图 🟡 count=2</text>
+<text x="540" y="1108" fill="#fbbf24" font-size="9" text-anchor="middle">设计预期 4 张 → 实际 2 张</text>
+<text x="540" y="1120" fill="#94a3b8" font-size="9" text-anchor="middle">0.41张/千字 vs 设计 1.5-3</text>
+
+<rect x="730" y="1070" width="250" height="65" rx="6" fill="#0f172a"/>
+<rect x="730" y="1070" width="250" height="65" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="855" y="1092" fill="white" font-size="11" font-weight="600" text-anchor="middle">Seedream 出图 🟢</text>
+<text x="855" y="1108" fill="#94a3b8" font-size="9" text-anchor="middle">并发出图 2/2 成功</text>
+<text x="855" y="1120" fill="#94a3b8" font-size="9" text-anchor="middle">814KB + 479KB</text>
+
+<line x1="350" y1="1102" x2="400" y2="1102" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="680" y1="1102" x2="730" y2="1102" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<line x1="550" y1="1160" x2="550" y2="1190" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 8: 发布 ==================== -->
+<rect x="30" y="1190" width="1040" height="110" rx="12" fill="none" stroke="#22d3ee" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="1210" fill="#22d3ee" font-size="11" font-weight="600">Step 8 · 排版 + 推草稿</text>
+
+<rect x="50" y="1220" width="250" height="55" rx="6" fill="#0f172a"/>
+<rect x="50" y="1220" width="250" height="55" rx="6" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="175" y="1242" fill="white" font-size="11" font-weight="600" text-anchor="middle">gate.py 拦截 🔴 首次</text>
+<text x="175" y="1258" fill="#fb7185" font-size="9" text-anchor="middle">缺 7 个 frontmatter 字段</text>
+<text x="175" y="1268" fill="#94a3b8" font-size="8" text-anchor="middle">slug/date/north_star/cover_pass...</text>
+
+<rect x="350" y="1220" width="200" height="55" rx="6" fill="#0f172a"/>
+<rect x="350" y="1220" width="200" height="55" rx="6" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="450" y="1242" fill="white" font-size="11" font-weight="600" text-anchor="middle">补字段 + 重试 🟡</text>
+<text x="450" y="1258" fill="#fbbf24" font-size="9" text-anchor="middle">补 7 字段 → 重跑</text>
+
+<rect x="600" y="1220" width="200" height="55" rx="6" fill="#0f172a"/>
+<rect x="600" y="1220" width="200" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="700" y="1242" fill="white" font-size="11" font-weight="600" text-anchor="middle">推送成功 🟢</text>
+<text x="700" y="1258" fill="#34d399" font-size="9" text-anchor="middle">media_id 已生成</text>
+
+<rect x="850" y="1220" width="200" height="55" rx="6" fill="#0f172a"/>
+<rect x="850" y="1220" width="200" height="55" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="950" y="1242" fill="white" font-size="11" font-weight="600" text-anchor="middle">草稿箱 🟢</text>
+<text x="950" y="1258" fill="#94a3b8" font-size="9" text-anchor="middle">等人工审阅发出</text>
+
+<line x1="300" y1="1247" x2="350" y2="1247" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr-y)"/>
+<line x1="550" y1="1247" x2="600" y2="1247" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+<line x1="800" y1="1247" x2="850" y2="1247" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<line x1="550" y1="1300" x2="550" y2="1330" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-g)"/>
+
+<!-- ==================== STEP 9: 报告 ==================== -->
+<rect x="30" y="1330" width="1040" height="60" rx="12" fill="none" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="50" y="1350" fill="#34d399" font-size="11" font-weight="600">Step 9 · Ship 报告 🟢</text>
+<rect x="300" y="1340" width="200" height="35" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+<text x="400" y="1363" fill="white" font-size="10" font-weight="600" text-anchor="middle">run log JSON ✅</text>
+<rect x="550" y="1340" width="200" height="35" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+<text x="650" y="1363" fill="white" font-size="10" font-weight="600" text-anchor="middle">报告 print ✅</text>
+
+<!-- ==================== 偏差统计 ==================== -->
+<rect x="30" y="1420" width="1040" height="120" rx="12" fill="rgba(136,19,55,0.15)" stroke="#fb7185" stroke-width="1"/>
+<text x="550" y="1445" fill="#fb7185" font-size="14" font-weight="700" text-anchor="middle">偏差统计</text>
+
+<text x="80" y="1475" fill="#fb7185" font-size="11">🔴 降级/失败 (4 处)</text>
+<text x="80" y="1492" fill="#94a3b8" font-size="9">WebSearch 缺失 · smol.ai SSL · we-mp-rss 空 · IT之家/X.com 403</text>
+
+<text x="80" y="1515" fill="#fbbf24" font-size="11">🟡 偏差但修复 (5 处)</text>
+<text x="80" y="1532" fill="#94a3b8" font-size="9">opening reframe 0/10 · 初稿差 16% · lint 6 轮(14→2) · 内文图 2/4 · gate 缺 7 字段</text>
+
+<text x="600" y="1475" fill="#34d399" font-size="11">🟢 符合预期 (9 处)</text>
+<text x="600" y="1492" fill="#94a3b8" font-size="9">选题排序 · 事件去重 · 标题harness · 结尾harness · humanizer · 王小波</text>
+<text x="600" y="1505" fill="#94a3b8" font-size="9">三轨全票 · 封面 dedup · 推送成功</text>
+
+<!-- Legend -->
+<rect x="30" y="1560" width="1040" height="45" rx="8" fill="rgba(30,41,59,0.3)" stroke="#334155" stroke-width="0.5"/>
+<rect x="50" y="1572" width="16" height="10" rx="2" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+<text x="72" y="1581" fill="#94a3b8" font-size="9">符合预期</text>
+<rect x="160" y="1572" width="16" height="10" rx="2" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
+<text x="182" y="1581" fill="#94a3b8" font-size="9">降级/失败</text>
+<rect x="280" y="1572" width="16" height="10" rx="2" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1"/>
+<text x="302" y="1581" fill="#94a3b8" font-size="9">偏差但修复</text>
+<text x="420" y="1581" fill="#94a3b8" font-size="9">总计: 18 个检查点 · 9 符合 · 5 偏差修复 · 4 降级</text>
+
+</svg>

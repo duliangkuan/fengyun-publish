@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+output/
+tmp/
+assets/portraits/

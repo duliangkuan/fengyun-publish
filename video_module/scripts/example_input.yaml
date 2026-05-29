@@ -1,0 +1,22 @@
+provider: falai
+
+avatar_image: ../assets/portraits/teacher_male_01.jpg
+
+voice: male_calm
+
+text: |
+  35 岁了还在用 Excel 做报表?
+  而你同事已经用 AI 一键生成日报、周报、方案。
+  说一句扎心的:2026 年,AI 不是工具,是简历筛选门槛。
+  HR 朋友亲口告诉我,没有 AI 相关证书的简历,现在被悄悄筛掉。
+  我研究了所有 AI 证书,最推荐的就是 XXX 证书。
+  人社部备案,可在官网查询。0 基础 90 天学完,平均涨薪 50%。
+  今天报名直降 300 元,前 50 名再送 1 对 1 简历改写。
+  评论区扣 "想考",我私信你完整攻略。
+
+text_prompt: "A professional teacher in business attire speaking confidently to camera in an office setting."
+
+turbo_mode: true
+num_inference_steps: 30
+
+output: ad_001.mp4

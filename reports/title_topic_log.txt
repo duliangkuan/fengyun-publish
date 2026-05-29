@@ -1,0 +1,9 @@
+=== 加载数据 ===
+  加载 2730 篇文章
+  ✓ 缓存命中: shape=(2730, 1024)
+
+=== BERTopic 聚类 ===
+  ✓ 24.1s, 主题数 22
+  ✓ 缓存命中,21 个名字
+
+✓ D:\Dev\ai-wechat-pipeline\reports\title_topic_analysis.md

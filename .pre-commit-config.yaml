@@ -1,0 +1,61 @@
+# =============================================================================
+# pre-commit 钩子配置
+# =============================================================================
+# 装法:
+#   pip install pre-commit
+#   pre-commit install        # 在 repo 根目录运行一次,以后 git commit 自动跑
+#   pre-commit run --all-files  # 可选:手动对全仓库跑一次
+#
+# 工作原理:
+#   每次 git commit 触发前,pre-commit 跑以下所有 hook
+#   任一 hook 失败 → commit 被拦,显示错误信息
+#   修复后重新 git add + git commit
+#
+# **绝不**用 git commit --no-verify 跳过(见 SECURITY.md)
+# =============================================================================
+
+repos:
+  # ---------------------------------------------------------------------------
+  # gitleaks — 凭证泄漏扫描(P0)
+  # ---------------------------------------------------------------------------
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
+        name: gitleaks 凭证扫描
+
+  # ---------------------------------------------------------------------------
+  # pre-commit 官方常用 hook
+  # ---------------------------------------------------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # 凭证 / 大文件
+      - id: detect-private-key
+        name: 检测 SSH / PGP / SSL 私钥
+      - id: check-added-large-files
+        name: 检测 > 5 MB 大文件
+        args: ['--maxkb=5120']
+
+      # 配置文件语法
+      - id: check-yaml
+        name: 检查 YAML 语法
+        # vendor / corpus 里可能有 KOL 自带的破损 yaml,放行
+        exclude: ^(vendor/|corpus/)
+      - id: check-json
+        name: 检查 JSON 语法
+        exclude: ^(vendor/|corpus/|output/runs/)
+
+      # 卫生
+      - id: trailing-whitespace
+        name: 移除行尾空格
+        exclude: '\.md$'  # markdown 行尾两空格 = 软回车,保留
+      - id: end-of-file-fixer
+        name: 文件末尾确保单换行
+        exclude: '\.(svg|png|jpg|jpeg|gif|exe|parquet|sqlite)$'
+      - id: check-merge-conflict
+        name: 检测未解决的 merge 冲突标记
+      - id: mixed-line-ending
+        name: 行尾统一(配合 .gitattributes)
+        args: ['--fix=lf']
+        exclude: '\.(ps1|psm1|bat|cmd)$'  # PowerShell 保留 CRLF

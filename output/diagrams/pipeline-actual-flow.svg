@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1400" font-family="'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#4ade80"/></marker>
+    <marker id="arrow-yellow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#facc15"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#f87171"/></marker>
+  </defs>
+
+  <rect width="1000" height="1400" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="500" y="45" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="bold">fengyun-publish 实际执行流程 (2026-05-26)</text>
+  <text x="500" y="70" text-anchor="middle" fill="#94a3b8" font-size="13">主题: 从笑话到武器 — 苹果 Siri 的 Agent 逆袭之路</text>
+
+  <!-- Legend -->
+  <rect x="30" y="85" width="14" height="14" rx="2" fill="#4ade80"/>
+  <text x="50" y="97" fill="#94a3b8" font-size="11">Pass (自动)</text>
+  <rect x="150" y="85" width="14" height="14" rx="2" fill="#facc15"/>
+  <text x="170" y="97" fill="#94a3b8" font-size="11">Partial / 手动介入</text>
+  <rect x="330" y="85" width="14" height="14" rx="2" fill="#f87171"/>
+  <text x="350" y="97" fill="#94a3b8" font-size="11">Blocked / 失败</text>
+  <rect x="470" y="85" width="14" height="14" rx="2" fill="#60a5fa"/>
+  <text x="490" y="97" fill="#94a3b8" font-size="11">Skill 调用</text>
+
+  <!-- Step 1 -->
+  <rect x="60" y="120" width="880" height="80" rx="8" fill="#1e293b" stroke="#4ade80" stroke-width="2"/>
+  <text x="80" y="145" fill="#4ade80" font-size="14" font-weight="bold">Step 1 · 数据驱动选题</text>
+  <text x="80" y="168" fill="#cbd5e1" font-size="12">实际: aihot API (手动 curl) → 人工排序候选 → event_dedup ✅</text>
+  <text x="80" y="188" fill="#f87171" font-size="11">缺: iti_collect.py / topic_recommender.py 未跑, WebSearch 不可用</text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="200" x2="500" y2="220" stroke="#4ade80" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Step 1.5 -->
+  <rect x="60" y="220" width="880" height="80" rx="8" fill="#1e293b" stroke="#facc15" stroke-width="2"/>
+  <text x="80" y="245" fill="#facc15" font-size="14" font-weight="bold">Step 1.5 · Dogfood Gate (3 attempts)</text>
+  <text x="80" y="268" fill="#cbd5e1" font-size="12">实际: 手写开头 → opening_signal.py 评分 → 3 轮 retry 通过</text>
+  <text x="80" y="288" fill="#f87171" font-size="11">缺: fengyun-writer skill 试稿模式未 invoke, 主线程手写</text>
+
+  <line x1="500" y1="300" x2="500" y2="320" stroke="#4ade80" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Step 2 -->
+  <rect x="60" y="320" width="880" height="80" rx="8" fill="#1e293b" stroke="#facc15" stroke-width="2"/>
+  <text x="80" y="345" fill="#facc15" font-size="14" font-weight="bold">Step 2 · ITI I-2 深搜调研</text>
+  <text x="80" y="368" fill="#cbd5e1" font-size="12">实际: aihot API (13 facts) + WebFetch (全部 403/404 反爬)</text>
+  <text x="80" y="388" fill="#f87171" font-size="11">缺: WebSearch 不可用, iti_explore.py 未跑, 深搜信源不足</text>
+
+  <line x1="500" y1="400" x2="500" y2="420" stroke="#facc15" stroke-width="2" marker-end="url(#arrow-yellow)"/>
+
+  <!-- Step 3 -->
+  <rect x="60" y="420" width="880" height="80" rx="8" fill="#1e293b" stroke="#facc15" stroke-width="2"/>
+  <text x="80" y="445" fill="#facc15" font-size="14" font-weight="bold">Step 3 · 写初稿 (4915 字)</text>
+  <text x="80" y="468" fill="#cbd5e1" font-size="12">实际: fengyun-writer skill 被 invoke → 但实际主线程手写 (voice-dna + corpus 读取后)</text>
+  <text x="80" y="488" fill="#f87171" font-size="11">缺: skill 内部 Step 0-3 工作流未自动执行, 初稿字数不足后手动扩充</text>
+
+  <line x1="500" y1="500" x2="500" y2="520" stroke="#facc15" stroke-width="2" marker-end="url(#arrow-yellow)"/>
+
+  <!-- Step 3.3 + 3.5 -->
+  <rect x="60" y="520" width="430" height="70" rx="8" fill="#1e293b" stroke="#4ade80" stroke-width="2"/>
+  <text x="80" y="545" fill="#4ade80" font-size="13" font-weight="bold">Step 3.3 · 标题 harness</text>
+  <text x="80" y="565" fill="#cbd5e1" font-size="11">title_signal + title_dedup ✅ (2 轮)</text>
+  <text x="80" y="582" fill="#94a3b8" font-size="10">score=72.5 hook=人物故事</text>
+
+  <rect x="510" y="520" width="430" height="70" rx="8" fill="#1e293b" stroke="#4ade80" stroke-width="2"/>
+  <text x="530" y="545" fill="#4ade80" font-size="13" font-weight="bold">Step 3.5 · 结尾 harness</text>
+  <text x="530" y="565" fill="#cbd5e1" font-size="11">ending_signal + ending_dedup ✅ (1 轮)</text>
+  <text x="530" y="582" fill="#94a3b8" font-size="10">aphorism=10 summary=9 imperative=10</text>
+
+  <line x1="500" y1="590" x2="500" y2="610" stroke="#4ade80" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Step 4 + 4.5 -->
+  <rect x="60" y="610" width="430" height="70" rx="8" fill="#1e293b" stroke="#facc15" stroke-width="2"/>
+  <text x="80" y="635" fill="#facc15" font-size="13" font-weight="bold">Step 4 · Lint (14→3 violations)</text>
+  <text x="80" y="655" fill="#cbd5e1" font-size="11">fengyun_lint + fix_punctuation + 手动 Edit</text>
+  <text x="80" y="672" fill="#94a3b8" font-size="10">剩余: R13 R19 R20 (partial_pass)</text>
+
+  <rect x="510" y="610" width="430" height="70" rx="8" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+  <text x="530" y="635" fill="#60a5fa" font-size="13" font-weight="bold">Step 4.5 · Humanizer-zh</text>
+  <text x="530" y="655" fill="#cbd5e1" font-size="11">humanizer-zh skill invoke ✅</text>
+  <text x="530" y="672" fill="#94a3b8" font-size="10">3 处修复, 质量 40/50</text>
+
+  <line x1="500" y1="680" x2="500" y2="700" stroke="#4ade80" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Step 5 -->
+  <rect x="60" y="700" width="880" height="70" rx="8" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+  <text x="80" y="725" fill="#60a5fa" font-size="13" font-weight="bold">Step 5 · 王小波语感预审</text>
+  <text x="80" y="745" fill="#cbd5e1" font-size="12">wangxiaobo-perspective skill invoke ✅ — 5 处翻译腔发现并修复</text>
+  <text x="80" y="762" fill="#94a3b8" font-size="10">深度学习管线 / 范式转移 / 视野拉远 / 地方在于 / 核心单元</text>
+
+  <line x1="500" y1="770" x2="500" y2="790" stroke="#4ade80" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Step 6 Critic -->
+  <rect x="60" y="790" width="880" height="100" rx="8" fill="#1e293b" stroke="#facc15" stroke-width="2"/>
+  <text x="80" y="815" fill="#facc15" font-size="14" font-weight="bold">Step 6 · Critic 三轨 Vote (非并行)</text>
+  <rect x="80" y="825" width="260" height="25" rx="4" fill="#064e3b" stroke="#4ade80" stroke-width="1"/>
+  <text x="90" y="843" fill="#4ade80" font-size="11">Track A: score_draft.py → 69.8 ✅</text>
+  <rect x="360" y="825" width="260" height="25" rx="4" fill="#064e3b" stroke="#facc15" stroke-width="1"/>
+  <text x="370" y="843" fill="#facc15" font-size="11">Track B: huashu → 后补 ship ✅</text>
+  <rect x="640" y="825" width="260" height="25" rx="4" fill="#064e3b" stroke="#facc15" stroke-width="1"/>
+  <text x="650" y="843" fill="#facc15" font-size="11">Track C: content-judge → 后补 yes ✅</text>
+  <text x="80" y="880" fill="#f87171" font-size="11">问题: A 跑完后才补 B/C, 非三轨并行; B/C 延迟导致 gate.py 首次阻断</text>
+
+  <line x1="500" y1="890" x2="500" y2="910" stroke="#facc15" stroke-width="2" marker-end="url(#arrow-yellow)"/>
+
+  <!-- Step 7 -->
+  <rect x="60" y="910" width="430" height="80" rx="8" fill="#1e293b" stroke="#4ade80" stroke-width="2"/>
+  <text x="80" y="935" fill="#4ade80" font-size="13" font-weight="bold">Step 7 · 封面</text>
+  <text x="80" y="955" fill="#cbd5e1" font-size="11">generate_cover_by_template.py ✅</text>
+  <text x="80" y="975" fill="#94a3b8" font-size="10">T6_portrait_concept (dedup T1→T6)</text>
+  <text x="80" y="985" fill="#94a3b8" font-size="10">Seedream 34s, 569KB</text>
+
+  <rect x="510" y="910" width="430" height="80" rx="8" fill="#1e293b" stroke="#facc15" stroke-width="2"/>
+  <text x="530" y="935" fill="#facc15" font-size="13" font-weight="bold">Step 7.2 · 内文图 (手动)</text>
+  <text x="530" y="955" fill="#cbd5e1" font-size="11">illustrate_decider + Seedream ✅</text>
+  <text x="530" y="975" fill="#f87171" font-size="10">缺: huashu-image-curator 未真调</text>
+  <text x="530" y="985" fill="#94a3b8" font-size="10">1 张图, 569KB</text>
+
+  <line x1="500" y1="990" x2="500" y2="1010" stroke="#facc15" stroke-width="2" marker-end="url(#arrow-yellow)"/>
+
+  <!-- Step 8 -->
+  <rect x="60" y="1010" width="880" height="90" rx="8" fill="#1e293b" stroke="#f87171" stroke-width="2"/>
+  <text x="80" y="1035" fill="#f87171" font-size="14" font-weight="bold">Step 8 · 推草稿 (3 次 gate 阻断)</text>
+  <text x="80" y="1058" fill="#cbd5e1" font-size="12">attempt 1: gate BLOCKED — 缺 slug/north_star/huashu_decision_pass</text>
+  <text x="80" y="1075" fill="#cbd5e1" font-size="12">attempt 2: gate BLOCKED — 缺 image_paths + Track B/C 未真调</text>
+  <text x="80" y="1092" fill="#4ade80" font-size="12">attempt 3: gate PASS → post_fengyun_publish → media_id ✅</text>
+
+  <!-- Result -->
+  <rect x="60" y="1120" width="880" height="60" rx="8" fill="#064e3b" stroke="#4ade80" stroke-width="3" filter="url(#glow)"/>
+  <text x="500" y="1150" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="bold">草稿已推送到公众号草稿箱</text>
+  <text x="500" y="1170" text-anchor="middle" fill="#94a3b8" font-size="11">media_id: f5xAnh6tT5u4aYGYiST-AH24-e-asMwrgfgtJlq9A...</text>
+
+  <!-- Stats -->
+  <rect x="60" y="1200" width="880" height="180" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="80" y="1225" fill="#e2e8f0" font-size="14" font-weight="bold">执行统计</text>
+  <text x="80" y="1250" fill="#94a3b8" font-size="12">Steps: 13/13 完成 | Pass: 8 | Partial: 3 | Blocked→Resolved: 2</text>
+  <text x="80" y="1275" fill="#94a3b8" font-size="12">Skill 调用: 5/7 成功 (fengyun-writer 部分, huashu-image-curator 未真调)</text>
+  <text x="80" y="1300" fill="#94a3b8" font-size="12">Python 脚本: 6/12 自动跑 (opening_signal, title_signal, ending_signal, score_draft, fengyun_lint, generate_cover)</text>
+  <text x="80" y="1325" fill="#94a3b8" font-size="12">WebSearch: 不可用 | WebFetch: 全部反爬 | aihot API: 正常</text>
+  <text x="80" y="1350" fill="#94a3b8" font-size="12">gate.py 阻断: 3 次 (缺字段 / 缺 Track B/C / 缺 image_paths)</text>
+  <text x="80" y="1375" fill="#facc15" font-size="12" font-weight="bold">总耗时: ~45 min (含手动介入修复)</text>
+</svg>

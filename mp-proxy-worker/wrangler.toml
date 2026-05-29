@@ -1,0 +1,12 @@
+name = "mp-proxy-worker"
+main = "src/index.js"
+compatibility_date = "2025-10-01"
+
+# 部署后会得到 https://mp-proxy-worker.<your-subdomain>.workers.dev
+# 把这个 URL 填到 down.mptext.top 偏好的"私有代理列表"里
+
+# 可选: 共享密钥,防止你的 Worker 被陌生人滥用
+# 启用方法:取消下面这行注释,改成自己的随机字符串
+# 然后在 exporter 偏好的"私有代理 authorization"里填同一个串
+# [vars]
+# SHARED_SECRET = "change-me-to-random-string"

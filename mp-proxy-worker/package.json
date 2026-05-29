@@ -1,0 +1,13 @@
+{
+  "name": "mp-proxy-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "微信公众号文章反向代理 Worker,配合 wechat-article-exporter privateProxyList 使用",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.92.0"
+  }
+}

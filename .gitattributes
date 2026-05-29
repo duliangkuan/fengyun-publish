@@ -1,0 +1,45 @@
+# =============================================================================
+# .gitattributes — 行尾 / 文件属性统一
+# =============================================================================
+# 目的:跨平台协作时,Windows(CRLF)和 Unix(LF)的行尾差异不会污染 git diff
+# =============================================================================
+
+# 默认:让 git 自动处理(checkout 时按 OS,commit 时统一 LF)
+* text=auto eol=lf
+
+# 二进制文件:不做行尾转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.exe binary
+*.dll binary
+*.parquet binary
+*.sqlite binary
+*.db binary
+*.mp4 binary
+*.mp3 binary
+*.woff binary
+*.woff2 binary
+
+# 文本文件:强制 LF(无论操作系统)
+*.py text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.sh text eol=lf
+
+# PowerShell:Windows 工具,保留 CRLF
+*.ps1 text eol=crlf
+*.psm1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf

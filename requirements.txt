@@ -1,0 +1,35 @@
+# =============================================================================
+# AI 公众号 Ship Pipeline — Python 依赖清单
+# =============================================================================
+# 装法:pip install -r requirements.txt
+#
+# 注:Claude / Anthropic API 通过 Claude Code skill 间接调用,无需 anthropic SDK
+# 注:微信公众号 API 用 urllib(stdlib),不依赖 requests
+# 注:首次 pip install 后建议 pip freeze > requirements.lock.txt 锁版本
+# =============================================================================
+
+# 数据处理(critic 评分 / parquet 读写)
+pandas>=2.0
+numpy>=1.24
+scipy>=1.11
+
+# 机器学习(critic 训练 / 特征工程)
+scikit-learn>=1.3
+lightgbm>=4.0
+
+# 中文 NLP(分词 / 排版规则匹配)
+jieba>=0.42
+
+# Markdown / HTML(layout_rules huashu 渲染)
+markdown>=3.5
+markdownify>=0.11
+
+# 配置 / 凭证
+PyYAML>=6.0
+python-dotenv>=1.0
+
+# -----------------------------------------------------------------------------
+# 开发依赖(可选,跑测试 + pre-commit 时需要)
+# -----------------------------------------------------------------------------
+pytest>=7.4
+pre-commit>=3.5
